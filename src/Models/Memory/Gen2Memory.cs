@@ -686,7 +686,9 @@ namespace Pokebot.Models.Memory
             var wEnemyMon = GetSymbol("wEnemyMon");
             var opponentPokemon = pokemon.MemoryLocation.Address == wEnemyMon.Address;
 
-            long dvAddr = pokemon.MemoryLocation.Address + (opponentPokemon ? 0x06 : 0x15);
+            // Offset selects the party slot (index * party_struct size); it is 0 for wEnemyMon.
+            long structAddr = pokemon.MemoryLocation.Address + pokemon.MemoryLocation.Offset;
+            long dvAddr = structAddr + (opponentPokemon ? 0x06 : 0x15);
             SymbolUtil.Write(APIContainer, dvAddr, new byte[] { atkDef, spdSpc });
 
             // Verification

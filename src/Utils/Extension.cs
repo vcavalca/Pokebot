@@ -59,11 +59,17 @@ namespace Pokebot.Utils
             return (bytes[0] << 16) | (bytes[1] << 8) | bytes[2];
         }
 
-        public static bool HasSaveState(this IEmuClientApi emuClient, string name)
+        /// <summary>
+        /// Checks whether <see cref="IEmuClientApi.SaveState(string)"/> already wrote a state with this name.
+        /// Mirrors how BizHawk resolves the folder (per loaded system, e.g. GBA/State or Gameboy/State),
+        /// using BizHawk's default path entries since the user's path config is not exposed to external tools.
+        /// </summary>
+        public static bool HasSaveState(this ApiContainer apiContainer, string name)
         {
-            var directory = Environment.CurrentDirectory;
-            var fullDirectory = Path.Combine(directory, "GBA", "State", $"{name}.State");
-            return File.Exists(fullDirectory);
+            var systemId = apiContainer.Emulation.GetSystemId();
+            var directory = new PathEntryCollection().SaveStateAbsolutePath(systemId);
+            var fullPath = Path.Combine(directory, $"{name}.State");
+            return File.Exists(fullPath);
         }
 
         public static bool LoadOrStop(this IEmuClientApi emuClient, string name)
