@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -81,6 +82,8 @@ namespace Pokebot
         public FileVersionInfo PokebotVersion { get; }
 
         WaitTask? _waitTask;
+        // Every tab except Settings: they need a game, so they are only in the tab control while a supported ROM is loaded
+        readonly List<TabPage> _gameTabPages = new List<TabPage>();
         GameState _lastLoggedState = GameState.Unknow;
         bool _lastLoggedBotEnabled;
         int _encounterCount;
@@ -120,11 +123,11 @@ namespace Pokebot
 
             _versionLabel.Text = $"{WindowTitleStatic} v{PokebotVersion.ProductVersion.Substring(0, 5)}";
             _newVersionLabel.Hide();
-            _tabControl.Hide();
             _bugButton.Visible = GithubServices != null;
             _joinDiscordButton.Visible = !string.IsNullOrWhiteSpace(AppConfig.DiscordInvite);
 
             FormClosed += (s, e) => DiscordPresenceService?.Dispose();
+            FormClosed += (s, e) => DisposeDetachedTabPages();
 
             CreateTabPages();
         }
@@ -196,11 +199,44 @@ namespace Pokebot
 #endif
         }
 
-        private void CreateTab(UserControl userControl, string name)
+        private TabPage CreateTab(UserControl userControl, string name)
         {
             TabPage tabPage = new TabPage(name);
             tabPage.Controls.Add(userControl);
             _tabControl.TabPages.Add(tabPage);
+            return tabPage;
+        }
+
+        /// <summary>
+        /// Settings is always shown, so the language and options can be changed before loading a game.
+        /// The other tabs are removed while no supported ROM is loaded and added back, in order, after it.
+        /// </summary>
+        private void UpdateVisibleTabs()
+        {
+            foreach (var tabPage in _gameTabPages)
+            {
+                var isShown = _tabControl.TabPages.Contains(tabPage);
+                if (IsRomLoaded && !isShown)
+                {
+                    _tabControl.TabPages.Add(tabPage);
+                }
+                else if (!IsRomLoaded && isShown)
+                {
+                    _tabControl.TabPages.Remove(tabPage);
+                }
+            }
+        }
+
+        /// <summary>Tab pages removed from the tab control are not disposed with the form.</summary>
+        private void DisposeDetachedTabPages()
+        {
+            foreach (var tabPage in _gameTabPages)
+            {
+                if (!_tabControl.TabPages.Contains(tabPage))
+                {
+                    tabPage.Dispose();
+                }
+            }
         }
 
         private void CreateTabPages()
@@ -227,16 +263,17 @@ namespace Pokebot
             SettingsPanel.Dock = DockStyle.Fill;
 
             CreateTab(SettingsPanel, Messages.Tab_SettingsPanel);
-            CreateTab(BotPanel, Messages.Tab_BotPanel);
-            CreateTab(EncounterStatsPanel, Messages.Tab_EncounterStats);
-            CreateTab(OpponentViewerPanel, Messages.Tab_ViewerOpponentName);
-            CreateTab(PartyViewerPanel, Messages.Tab_ViewerPartyName);
-            CreateTab(LogsPanel, Messages.Tab_LogsPanel);
+            _gameTabPages.Add(CreateTab(BotPanel, Messages.Tab_BotPanel));
+            _gameTabPages.Add(CreateTab(EncounterStatsPanel, Messages.Tab_EncounterStats));
+            _gameTabPages.Add(CreateTab(OpponentViewerPanel, Messages.Tab_ViewerOpponentName));
+            _gameTabPages.Add(CreateTab(PartyViewerPanel, Messages.Tab_ViewerPartyName));
+            _gameTabPages.Add(CreateTab(LogsPanel, Messages.Tab_LogsPanel));
+            UpdateVisibleTabs();
         }
 
         private void RomLoadedUpdated()
         {
-            _tabControl.Visible = IsRomLoaded;
+            UpdateVisibleTabs();
             EncounterStatsPanel.Clear();
             OpponentViewerPanel.Hide();
             PartyViewerPanel.Clear();

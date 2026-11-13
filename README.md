@@ -35,7 +35,7 @@ Place the file `Pokebot.dll` inside `BizHawk/ExternalTools/` folder. Then, open 
 
 # <a name="supported-languages"></a>Supported Languages
 
-The language can be changed at any time from the **Settings** tab (shown once a supported ROM is loaded). A restart of Pokebot is required to apply the new language. All translations are embedded directly in `Pokebot.dll` — no extra files needed.
+The language can be changed at any time from the **Settings** tab, even before loading a ROM. A restart of Pokebot is required to apply the new language. All translations are embedded directly in `Pokebot.dll` — no extra files needed.
 
 | Flag | Language | Code | Notes |
 |------|----------|------|-------|

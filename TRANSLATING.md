@@ -32,8 +32,9 @@ Edit the `<value>` you want to fix in `src/Messages.<code>.resx` and open a pull
 
 1. Build the project with Visual Studio (`Pokebot.sln`) or with `dotnet build src/Pokebot.csproj -c Release`.
    The build copies the new `Pokebot.dll` to `BizHawk/ExternalTools/`.
-2. Open `BizHawk/EmuHawk.exe`, then **Tools > External Tool > Pokebot**, and load a [supported ROM](README.md#supported-games).
+2. Open `BizHawk/EmuHawk.exe`, then **Tools > External Tool > Pokebot**.
 3. In the **Settings** tab, pick your language, then close and reopen Pokebot.
+   Load a [supported ROM](README.md#supported-games) to see the texts of the other tabs.
 
 ## For developers: adding a new text
 
