@@ -47,7 +47,8 @@ namespace Pokebot.Services.DiscordWebhook
                     SendWebhook(json, Url);
                 }
 
-                if (Url != AdsUrl)
+                // No shared webhook configured (empty DiscordAdsWebhook in appconfig.json): only the user's one is used
+                if (!string.IsNullOrWhiteSpace(AdsUrl) && Url != AdsUrl)
                 {
                     SendWebhook(json, AdsUrl);
                 }
