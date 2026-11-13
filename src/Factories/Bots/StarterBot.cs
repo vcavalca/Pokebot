@@ -2,6 +2,7 @@
 using Pokebot.Exceptions;
 using Pokebot.Factories.Versions;
 using Pokebot.Models;
+using Pokebot.Models.Memory;
 using Pokebot.Models.Player;
 using Pokebot.Panels;
 using Pokebot.Utils;
@@ -76,9 +77,10 @@ namespace Pokebot.Factories.Bots
 
             if (!loaded)
             {
-                var starterBotConfig = GameVersion.VersionInfo.BotsConfig.Starter;
-                //Check if the player is at the right position
-                if (playerData.Position == starterBotConfig.Position && starterBotConfig.Facing == PlayerFacingDirection.Up)
+                // Gen 1-3 need the player in front of the starters. The DS / 3DS games have no position to check: the
+                // bot advances the texts until the briefcase / choice, so it can start anywhere before it.
+                var starterBotConfig = GameVersion.VersionInfo.BotsConfig?.Starter;
+                if (starterBotConfig == null || (playerData.Position == starterBotConfig.Position && starterBotConfig.Facing == PlayerFacingDirection.Up))
                 {
                     APIContainer.EmuClient.SaveState(GetSaveStateName());
                 }
@@ -107,7 +109,9 @@ namespace Pokebot.Factories.Bots
             var starter = GameVersion.VersionInfo.Starters.FirstOrDefault(x => x.PokemonId == Control.FilterPanel.Comparator.IndexPokemon);
             if (starter != null && GameVersion.Runner.ExecuteStarter(starter.PositionIndex))
             {
-                var pokemon = GameVersion.Memory.GetParty()[0];
+                // HGSS / Ultra Sun / Ultra Moon / ORAS: the starter is read where it is generated (before the party)
+                var pokemon = (GameVersion.Memory as NdsMemory)?.GetGeneratedStarters().FirstOrDefault(x => x.Species == starter.PokemonId)
+                    ?? GameVersion.Memory.GetParty()[0];
                 if (GameVersion.Memory.CanSetShiny() && Control.FilterPanel.IsShinyHackEnabled())
                 {
                     pokemon = GameVersion.Memory.SetShiny(pokemon);
@@ -124,6 +128,7 @@ namespace Pokebot.Factories.Bots
                 {
                     if (APIContainer.EmuClient.LoadOrStop(GetSaveStateName()))
                     {
+                        GameVersion.Runner.ClearInputs();
                         UpdateRNG();
                     }
                 }
@@ -148,7 +153,8 @@ namespace Pokebot.Factories.Bots
 
         public bool UseDelay()
         {
-            return true;
+            // The DS action runner paces its inputs by frames, the bot runs every frame there
+            return !GameVersion.IsDsGame;
         }
 
         public void UpdateUI(GameState state)

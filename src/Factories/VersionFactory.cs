@@ -31,7 +31,8 @@ namespace Pokebot.Factories
                     var version = tupleVersion.Item1;
                     var hashData = tupleVersion.Item2;
 
-                    if (string.IsNullOrEmpty(hashData.Symbols?.Main))
+                    // Gen 1-3 read memory through pret symbol files; the DS / 3DS games use addresses from their config
+                    if (version.Generation <= 3 && string.IsNullOrEmpty(hashData.Symbols?.Main))
                     {
                         throw new PokebotException(Messages.Symbols_Empty);
                     }
@@ -61,6 +62,38 @@ namespace Pokebot.Factories
                             case VersionCode.Crystal:
                                 memory = new Gen2Memory(apiContainer, version, hashData, generation);
                                 runner = new GoldSilverActionRunner(apiContainer, memory);
+                                break;
+                            case VersionCode.Red:
+                            case VersionCode.Blue:
+                            case VersionCode.Yellow:
+                                var gen1Memory = new Gen1Memory(apiContainer, version, hashData, generation);
+                                memory = gen1Memory;
+                                runner = new RedBlueYellowActionRunner(apiContainer, gen1Memory);
+                                break;
+                            case VersionCode.Diamond:
+                            case VersionCode.Pearl:
+                            case VersionCode.Platinum:
+                            case VersionCode.HeartGold:
+                            case VersionCode.SoulSilver:
+                            case VersionCode.Black:
+                            case VersionCode.White:
+                            case VersionCode.Black2:
+                            case VersionCode.White2:
+                                var ndsMemory = new NdsMemory(apiContainer, version, hashData, generation);
+                                memory = ndsMemory;
+                                runner = new NdsActionRunner(apiContainer, ndsMemory);
+                                break;
+                            case VersionCode.X:
+                            case VersionCode.Y:
+                            case VersionCode.OmegaRuby:
+                            case VersionCode.AlphaSapphire:
+                            case VersionCode.Sun:
+                            case VersionCode.Moon:
+                            case VersionCode.UltraSun:
+                            case VersionCode.UltraMoon:
+                                var threeDsMemory = new ThreeDsMemory(apiContainer, version, hashData, generation);
+                                memory = threeDsMemory;
+                                runner = new NdsActionRunner(apiContainer, threeDsMemory);
                                 break;
                         }
 

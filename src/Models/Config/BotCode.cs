@@ -9,5 +9,7 @@
         PickupPokemon = 4,
         Fishing = 5,
         Path = 6,
+        EggHatch = 7,
+        DaycareEgg = 8,
     }
 }

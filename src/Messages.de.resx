@@ -64,6 +64,20 @@
   <data name="AppName" xml:space="preserve">
     <value>Pokebot</value>
   </data>
+  <data name="BotEggHatch_AllHatched" xml:space="preserve">
+    <value>Alle Eier sind geschlüpft.</value>
+  </data>
+  <data name="BotEggHatch_Help" xml:space="preserve">
+    <value>Stelle dich mit Eiern im Team auf einen geraden Weg, schau in die Laufrichtung und drücke Starten. Der Bot läuft, bis ihm etwas den Weg versperrt, dreht um und läuft weiter, bis alle Eier geschlüpft sind (auf die Spitznamen-Frage antwortet er mit NEIN).
+
+Es gibt keine Filter: Ein Ei ist bereits beim Erhalt festgelegt, das Ausbrüten kann es nicht schillernd machen. Für ein anderes Pokémon musst du vor dem Erhalt des Eis neu laden.</value>
+  </data>
+  <data name="BotEggHatch_NoEgg" xml:space="preserve">
+    <value>Es ist kein Ei in deinem Team.</value>
+  </data>
+  <data name="BotEggHatch_ShinyHatched" xml:space="preserve">
+    <value>Ein schillerndes Pokémon ist geschlüpft!</value>
+  </data>
   <data name="BotFactory_NotSupported" xml:space="preserve">
     <value>Bot-Typ wird nicht unterstützt</value>
   </data>
@@ -405,5 +419,41 @@
   </data>
   <data name="Path_Up" xml:space="preserve">
     <value>Oben</value>
+  </data>
+  <data name="BotFishing_NoRod" xml:space="preserve">
+    <value>Registriere eine Angel auf Y (Beutel &gt; Basis-Items &gt; Registrieren) und stelle dich vor das Wasser, bevor du startest. HeartGold/SoulSilver und 5. Generation (Super-Angel): Die Angel muss das einzige registrierte Item sein.</value>
+  </data>
+  <data name="BotFishing_NothingCaught" xml:space="preserve">
+    <value>Kein Pokemon nach {0} Würfen in Folge: Stelle sicher, dass du vor Wasser stehst, in dem man angeln kann.</value>
+  </data>
+  <data name="BotDaycareEgg_Help" xml:space="preserve">
+    <value>Gib zwei Pokemon, die sich vermehren können, in die Pension (Weideburg in Diamant/Perl/Platin, Route 34 in HeartGold/SoulSilver; der Pensionsleiter darf kein Ei haben), stell dich auf einen geraden Weg ohne Trainer und hohes Gras, schau in die Laufrichtung und drücke Start. Der Bot läuft bis kurz vor die nächste Ei-Prüfung, speichert dort einen Zustand und lädt ihn mit neuen Zufallszahlen, bis das Ei des Pensionsleiters schillernd ist. Dann stoppt er: geh zum Pensionsleiter, nimm das Ei (die DVs werden beim Annehmen bestimmt) und speichere im Spiel.</value>
+  </data>
+  <data name="BotDaycareEgg_NeedTwo" xml:space="preserve">
+    <value>Gib zuerst zwei Pokemon, die sich vermehren können, in die Pension.</value>
+  </data>
+  <data name="BotDaycareEgg_EggWaiting" xml:space="preserve">
+    <value>Der Pensionsleiter hat schon ein Ei: nimm es an (oder lehne ab), bevor du startest.</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyFound" xml:space="preserve">
+    <value>Schillerndes Ei! Geh zum Pensionsleiter, nimm es an und speichere im Spiel.</value>
+  </data>
+  <data name="BotDaycareEgg_NoEgg" xml:space="preserve">
+    <value>Kein Ei nach {0} Versuchen: diese zwei Pokemon können sich nicht vermehren.</value>
+  </data>
+  <data name="BotDaycareEgg_HelpGen5" xml:space="preserve">
+    <value>Schwarz/Weiß/Schwarz 2/Weiß 2 (Pension auf Route 3) und Omega Rubin/Alpha Saphir (Route 117): das Ei wird erst festgelegt, wenn du es annimmst. Gib zwei Pokemon ab, die sich vermehren können, und laufe, bis der Pensionsleiter (draußen an der Tür) ein Ei für dich hat. Mach Platz im Team, stell dich vor ihn und schau ihn an, dann drücke Start. Der Bot speichert dort einen State, nimmt das Ei an und lädt mit neuen Zufallszahlen neu, bis das Ei schillernd ist. Dann hält er mit dem schillernden Ei im Team an: speichere im Spiel.</value>
+  </data>
+  <data name="BotDaycareEgg_NoEggYet" xml:space="preserve">
+    <value>Der Pensionsleiter hat noch kein Ei: laufe herum, bis er eines hat, stell dich dann vor ihn und starte erneut.</value>
+  </data>
+  <data name="BotDaycareEgg_PartyFull" xml:space="preserve">
+    <value>Dein Team ist voll: mach zuerst Platz für das Ei.</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyReceived" xml:space="preserve">
+    <value>Schillerndes Ei! Es ist in deinem Team: speichere im Spiel.</value>
+  </data>
+  <data name="BotDaycareEgg_NotReceived" xml:space="preserve">
+    <value>Kein Ei nach {0} Frames Gespräch: stell dich vor den Pensionsleiter, schau ihn an und starte erneut.</value>
   </data>
 </root>

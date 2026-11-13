@@ -12,6 +12,7 @@ namespace Pokebot.Models.Memory
     internal class Gen2Memory : CommonGenMemory
     {
         private const int ConfirmedOpponentReadsRequired = 2;
+        private const byte EggSpecies = 0xFD; // EGG in pret/pokecrystal constants/pokemon_constants.asm
 
         private string? _pendingOpponentSignature;
         private int _pendingOpponentReads;
@@ -142,7 +143,10 @@ namespace Pokebot.Models.Memory
             var bytesPokemon = SymbolUtil.Read(APIContainer, wPartyMon1.Address, offset, size);
             var bytesNickname = SymbolUtil.Read(APIContainer, wPartyMon1Nickname.Address, index * wPartyMon1Nickname.Size, wPartyMon1Nickname.Size).TakeWhile(x => x != 0x50);
             var bytesOT = SymbolUtil.Read(APIContainer, wPartyMonOTs.Address, index * wPartyMonOTs.Size, wPartyMonOTs.Size).TakeWhile(x => x != 0x50);
-            return ParsePokemon(bytesPokemon.ToArray(), bytesNickname.ToArray(), bytesOT.ToArray(), new MemoryLocation(wPartyMon1.Address, offset, size));
+            // Eggs keep the real species in the party struct, only the species list holds EGG
+            var wPartySpecies = GetSymbol("wPartySpecies");
+            var isEgg = SymbolUtil.Read(APIContainer, wPartySpecies.Address, index, 1)[0] == EggSpecies;
+            return ParsePokemon(bytesPokemon.ToArray(), bytesNickname.ToArray(), bytesOT.ToArray(), new MemoryLocation(wPartyMon1.Address, offset, size), isEgg);
         }
 
         private PokemonGender GetGender(byte genderRatio, int atkDV)
@@ -402,7 +406,7 @@ namespace Pokebot.Models.Memory
             _pendingOpponentReads = 0;
         }
 
-        protected Pokemon? ParsePokemon(byte[] bytesPokemon, byte[] bytesNickname, byte[] bytesOT, MemoryLocation memoryLocation)
+        protected Pokemon? ParsePokemon(byte[] bytesPokemon, byte[] bytesNickname, byte[] bytesOT, MemoryLocation memoryLocation, bool isEgg = false)
         {
             var speciesId = bytesPokemon[0x00];
             if (speciesId == 0)
@@ -533,7 +537,7 @@ namespace Pokebot.Models.Memory
                 level,
                 null,
                 ivs,
-                false,
+                isEgg,
                 null,
                 species.Name,
                 species.DexId,

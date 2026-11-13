@@ -226,6 +226,42 @@ namespace Pokebot {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All eggs have hatched..
+        /// </summary>
+        internal static string BotEggHatch_AllHatched {
+            get {
+                return ResourceManager.GetString("BotEggHatch_AllHatched", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Stand on a straight path with eggs in your party....
+        /// </summary>
+        internal static string BotEggHatch_Help {
+            get {
+                return ResourceManager.GetString("BotEggHatch_Help", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to There is no egg in your party..
+        /// </summary>
+        internal static string BotEggHatch_NoEgg {
+            get {
+                return ResourceManager.GetString("BotEggHatch_NoEgg", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to A shiny Pokemon hatched!.
+        /// </summary>
+        internal static string BotEggHatch_ShinyHatched {
+            get {
+                return ResourceManager.GetString("BotEggHatch_ShinyHatched", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Your party is full. You need at least 1 empty slot to use this bot..
         /// </summary>
         internal static string BotPickupPokemon_PartyFull {
@@ -591,6 +627,114 @@ namespace Pokebot {
         internal static string Gender_Unknow {
             get {
                 return ResourceManager.GetString("Gender_Unknow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deposit two Pokemon that can breed.
+        /// </summary>
+        internal static string BotDaycareEgg_Help {
+            get {
+                return ResourceManager.GetString("BotDaycareEgg_Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deposit two Pokemon that can breed at the Day-Care first.
+        /// </summary>
+        internal static string BotDaycareEgg_NeedTwo {
+            get {
+                return ResourceManager.GetString("BotDaycareEgg_NeedTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Day-Care Man already has an egg.
+        /// </summary>
+        internal static string BotDaycareEgg_EggWaiting {
+            get {
+                return ResourceManager.GetString("BotDaycareEgg_EggWaiting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shiny egg!.
+        /// </summary>
+        internal static string BotDaycareEgg_ShinyFound {
+            get {
+                return ResourceManager.GetString("BotDaycareEgg_ShinyFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No egg after {0} tries.
+        /// </summary>
+        internal static string BotDaycareEgg_NoEgg {
+            get {
+                return ResourceManager.GetString("BotDaycareEgg_NoEgg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Black/White/Black 2/White 2 (Day-Care on Route 3) and Omega Ruby/Alpha Sapphire (Route 117).
+        /// </summary>
+        internal static string BotDaycareEgg_HelpGen5 {
+            get {
+                return ResourceManager.GetString("BotDaycareEgg_HelpGen5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Day-Care Man has no egg yet.
+        /// </summary>
+        internal static string BotDaycareEgg_NoEggYet {
+            get {
+                return ResourceManager.GetString("BotDaycareEgg_NoEggYet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your party is full.
+        /// </summary>
+        internal static string BotDaycareEgg_PartyFull {
+            get {
+                return ResourceManager.GetString("BotDaycareEgg_PartyFull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shiny egg! It is in your party.
+        /// </summary>
+        internal static string BotDaycareEgg_ShinyReceived {
+            get {
+                return ResourceManager.GetString("BotDaycareEgg_ShinyReceived", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No egg after {0} frames of talking.
+        /// </summary>
+        internal static string BotDaycareEgg_NotReceived {
+            get {
+                return ResourceManager.GetString("BotDaycareEgg_NotReceived", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register a fishing rod on Y.
+        /// </summary>
+        internal static string BotFishing_NoRod {
+            get {
+                return ResourceManager.GetString("BotFishing_NoRod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Pokemon after {0} casts in a row.
+        /// </summary>
+        internal static string BotFishing_NothingCaught {
+            get {
+                return ResourceManager.GetString("BotFishing_NothingCaught", resourceCulture);
             }
         }
         

@@ -19,6 +19,14 @@ namespace Pokebot.Factories.Bots
                 Pokemon pokemon = GameVersion.Memory.GetOpponent();
                 Check(pokemon);
             }
+            else if (GameVersion.IsDsGame)
+            {
+                if (state == GameState.Overworld)
+                {
+                    // Talks to the Pokemon and advances its texts until the battle starts
+                    GameVersion.Runner.Interact();
+                }
+            }
             else
             {
                 APIContainer.Joypad.Set("A", true);

@@ -64,6 +64,20 @@
   <data name="AppName" xml:space="preserve">
     <value>Pokebot</value>
   </data>
+  <data name="BotEggHatch_AllHatched" xml:space="preserve">
+    <value>Tutte le uova si sono schiuse.</value>
+  </data>
+  <data name="BotEggHatch_Help" xml:space="preserve">
+    <value>Mettiti su un percorso dritto con le uova in squadra, rivolto verso la direzione in cui camminare, e premi Avvia. Il bot cammina finché qualcosa non gli blocca la strada, si gira e continua finché tutte le uova non si schiudono (risponde NO alla domanda sul soprannome).
+
+Non ci sono filtri: un uovo è già deciso quando lo ricevi, la schiusa non può renderlo cromatico. Per ottenere un altro Pokémon, ricarica prima di ricevere l'uovo.</value>
+  </data>
+  <data name="BotEggHatch_NoEgg" xml:space="preserve">
+    <value>Non c'è nessun uovo nella tua squadra.</value>
+  </data>
+  <data name="BotEggHatch_ShinyHatched" xml:space="preserve">
+    <value>Si è schiuso un Pokémon cromatico!</value>
+  </data>
   <data name="BotFactory_NotSupported" xml:space="preserve">
     <value>Tipo di bot non supportato</value>
   </data>
@@ -405,5 +419,41 @@
   </data>
   <data name="Path_Up" xml:space="preserve">
     <value>Su</value>
+  </data>
+  <data name="BotFishing_NoRod" xml:space="preserve">
+    <value>Registra una canna su Y (Borsa &gt; Strumenti base &gt; Registra) e mettiti di fronte all'acqua prima di iniziare. HeartGold/SoulSilver e quinta generazione (Superamo): la canna deve essere l'unico strumento registrato.</value>
+  </data>
+  <data name="BotFishing_NothingCaught" xml:space="preserve">
+    <value>Nessun Pokemon dopo {0} lanci di fila: assicurati di essere di fronte ad acqua in cui si può pescare.</value>
+  </data>
+  <data name="BotDaycareEgg_Help" xml:space="preserve">
+    <value>Lascia due Pokemon che possono riprodursi alla Pensione (Flemminia in Diamante/Perla/Platino, Percorso 34 in HeartGold/SoulSilver; il vecchietto non deve avere un uovo in attesa), mettiti su un percorso dritto senza allenatori né erba alta, rivolto nella direzione in cui camminare, poi premi Avvia. Il bot cammina fino a poco prima del prossimo controllo dell'uovo, salva uno stato lì e lo ricarica con nuovi numeri casuali finché l'uovo del vecchietto è cromatico. Poi si ferma: vai dal vecchietto, prendi l'uovo (i suoi IV sono decisi quando lo prendi) e salva nel gioco.</value>
+  </data>
+  <data name="BotDaycareEgg_NeedTwo" xml:space="preserve">
+    <value>Lascia prima due Pokemon che possono riprodursi alla Pensione.</value>
+  </data>
+  <data name="BotDaycareEgg_EggWaiting" xml:space="preserve">
+    <value>Il vecchietto della Pensione ha già un uovo: prendilo (o rifiutalo) prima di iniziare.</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyFound" xml:space="preserve">
+    <value>Uovo cromatico! Vai dal vecchietto della Pensione, prendilo e salva nel gioco.</value>
+  </data>
+  <data name="BotDaycareEgg_NoEgg" xml:space="preserve">
+    <value>Nessun uovo dopo {0} tentativi: questi due Pokemon non possono riprodursi.</value>
+  </data>
+  <data name="BotDaycareEgg_HelpGen5" xml:space="preserve">
+    <value>Nero/Bianco/Nero 2/Bianco 2 (Pensione sul Percorso 3) e Rubino Omega/Zaffiro Alpha (Percorso 117): l'uovo viene deciso solo quando lo prendi. Lascia due Pokemon che possono riprodursi e cammina finché il signore della Pensione (fuori, vicino alla porta) non ha un uovo per te. Fai posto nella squadra, mettiti davanti a lui guardandolo, poi premi Start. Il bot salva uno stato lì, prende l'uovo e ricarica con nuovi numeri casuali finché l'uovo non è cromatico. Poi si ferma con l'uovo cromatico nella squadra: salva nel gioco.</value>
+  </data>
+  <data name="BotDaycareEgg_NoEggYet" xml:space="preserve">
+    <value>Il signore della Pensione non ha ancora un uovo: cammina finché non ne ha uno, poi mettiti davanti a lui e ricomincia.</value>
+  </data>
+  <data name="BotDaycareEgg_PartyFull" xml:space="preserve">
+    <value>La tua squadra è piena: fai prima posto per l'uovo.</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyReceived" xml:space="preserve">
+    <value>Uovo cromatico! È nella tua squadra: salva nel gioco.</value>
+  </data>
+  <data name="BotDaycareEgg_NotReceived" xml:space="preserve">
+    <value>Nessun uovo dopo {0} fotogrammi di dialogo: mettiti davanti al signore della Pensione, guardandolo, e ricomincia.</value>
   </data>
 </root>

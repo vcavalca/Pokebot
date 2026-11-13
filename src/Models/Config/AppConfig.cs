@@ -7,9 +7,10 @@ namespace Pokebot.Models.Config
         public List<GenerationInfo> Generations { get; set; }
         public List<VersionInfo> Versions { get; set; }
         public List<BotType> BotTypes { get; set; }
-        public GithubConfig Github { get; set; }
-        public string DiscordInvite { get; set; }
-        public string DiscordAdsWebhook { get; set; }
-        public DiscordRichPresenceConfig DiscordRichPresence { get; set; }
+        // Optional (null disables the release check / Discord buttons)
+        public GithubConfig? Github { get; set; }
+        public string? DiscordInvite { get; set; }
+        public string? DiscordAdsWebhook { get; set; }
+        public DiscordRichPresenceConfig? DiscordRichPresence { get; set; }
     }
 }

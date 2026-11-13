@@ -1,0 +1,74 @@
+{
+  "Name": "Black2",
+  "Code": 18,
+  "Hashs": [
+    {
+      "Hash": "4C65A32989C78B8070751765592B0EA6",
+      "Tested": true
+    },
+    {
+      "Hash": "7496A685CB682EC8043A7A9AAC1D187F",
+      "Tested": false
+    }
+  ],
+  "Generation": 5,
+  "Pointers": {
+    "Anchor": "0x0",
+    "PartyCount": "0x0221E3E8",
+    "Party": "0x0221E3EC",
+    "TrainerName": "0x0221E9E8",
+    "TrainerId": "0x0221E9F8",
+    "MapHeader": "0x0223B444",
+    "Facing": "0x0223B45D",
+    "FacingValues": [
+      0,
+      128,
+      64,
+      192
+    ],
+    "FoeAnchor": "0x0",
+    "FoeCount": "0x02258D90",
+    "Foe": "0x02258D94",
+    "BattleMenuAnchor": "0x02141950",
+    "BattleMenuState": "0x1367C",
+    "BattleSubMenus": [
+      2
+    ],
+    "BattleIndicator": "0x02258D86",
+    "PlayerX": "0x0223B448",
+    "PlayerY": "0x0223B44C",
+    "PlayerZ": "0x0223B450",
+    "Rng": "0x021FFC18",
+    "RngSize": 8,
+    "Mt": "0x021FED28",
+    "MtIndex": "0x021FF6E8",
+    "KeyItems": "0x0221DEBC",
+    "FishingBite": "0x0209B3CA",
+    "FishingBiteValue": "0xFFF1",
+    "FishingNoBite": "0x0214BC62",
+    "StarterSelected": "0x022574C4",
+    "StartersReady": "0x0219CFE2",
+    "StartersReadyMask": "0x1",
+    "Bike": "0x0223B484",
+    "Daycare": "0x022262E4",
+    "DaycareSlotSize": "0xE4",
+    "DaycarePokemonOffset": "0x4",
+    "DaycareOffspring": "0x022264AC",
+    "DaycareEggSeed": "0x022264B0"
+  },
+  "Starters": [
+    {
+      "PositionIndex": 0,
+      "PokemonId": 495
+    },
+    {
+      "PositionIndex": 1,
+      "PokemonId": 498
+    },
+    {
+      "PositionIndex": 2,
+      "PokemonId": 501
+    }
+  ],
+  "BotsConfig": null
+}

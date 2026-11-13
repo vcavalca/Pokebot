@@ -64,6 +64,20 @@
   <data name="AppName" xml:space="preserve">
     <value>Pokebot</value>
   </data>
+  <data name="BotEggHatch_AllHatched" xml:space="preserve">
+    <value>Todos los huevos han eclosionado.</value>
+  </data>
+  <data name="BotEggHatch_Help" xml:space="preserve">
+    <value>Colócate en un camino recto con huevos en tu equipo, mirando hacia donde quieres caminar, y pulsa Iniciar. El bot camina hasta que algo le bloquea el paso, se da la vuelta y sigue hasta que todos los huevos eclosionen (responde NO a la pregunta del mote).
+
+No hay filtros: un huevo ya está decidido al recibirlo, eclosionarlo no puede hacerlo variocolor. Para obtener otro Pokémon, reinicia antes de recibir el huevo.</value>
+  </data>
+  <data name="BotEggHatch_NoEgg" xml:space="preserve">
+    <value>No hay ningún huevo en tu equipo.</value>
+  </data>
+  <data name="BotEggHatch_ShinyHatched" xml:space="preserve">
+    <value>¡Ha eclosionado un Pokémon variocolor!</value>
+  </data>
   <data name="BotFactory_NotSupported" xml:space="preserve">
     <value>Tipo de bot no compatible</value>
   </data>
@@ -405,5 +419,41 @@
   </data>
   <data name="Path_Up" xml:space="preserve">
     <value>Arriba</value>
+  </data>
+  <data name="BotFishing_NoRod" xml:space="preserve">
+    <value>Registra una caña en Y (Mochila &gt; Objetos clave &gt; Registrar) y colócate frente al agua antes de empezar. HeartGold/SoulSilver y 5.ª generación (Supercaña): la caña debe ser el único objeto registrado.</value>
+  </data>
+  <data name="BotFishing_NothingCaught" xml:space="preserve">
+    <value>Ningún Pokemon tras {0} lanzamientos seguidos: asegúrate de estar frente a agua donde se pueda pescar.</value>
+  </data>
+  <data name="BotDaycareEgg_Help" xml:space="preserve">
+    <value>Deja dos Pokemon que puedan criar en la Guardería (Pueblo Sosiego en Diamante/Perla/Platino, Ruta 34 en HeartGold/SoulSilver; el anciano no debe tener un huevo esperando), colócate en un camino recto sin entrenadores ni hierba alta, mirando hacia donde caminar, y pulsa Iniciar. El bot camina hasta justo antes de la siguiente comprobación de huevo, guarda un estado ahí y lo recarga con números aleatorios nuevos hasta que el huevo del anciano sea variocolor. Entonces se detiene: ve con el anciano, acepta el huevo (sus IVs se deciden al aceptarlo) y guarda en el juego.</value>
+  </data>
+  <data name="BotDaycareEgg_NeedTwo" xml:space="preserve">
+    <value>Deja primero dos Pokemon que puedan criar en la Guardería.</value>
+  </data>
+  <data name="BotDaycareEgg_EggWaiting" xml:space="preserve">
+    <value>El anciano de la Guardería ya tiene un huevo: acéptalo (o recházalo) antes de empezar.</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyFound" xml:space="preserve">
+    <value>¡Huevo variocolor! Ve con el anciano de la Guardería, acéptalo y guarda en el juego.</value>
+  </data>
+  <data name="BotDaycareEgg_NoEgg" xml:space="preserve">
+    <value>Ningún huevo tras {0} intentos: estos dos Pokemon no pueden criar juntos.</value>
+  </data>
+  <data name="BotDaycareEgg_HelpGen5" xml:space="preserve">
+    <value>Negro/Blanco/Negro 2/Blanco 2 (Guardería de la Ruta 3) y Rubí Omega/Zafiro Alfa (Ruta 117): el huevo solo se decide cuando lo recoges. Deja dos Pokemon que puedan criar y camina hasta que el encargado de la Guardería (fuera, junto a la puerta) tenga un huevo para ti. Deja sitio en tu equipo, ponte delante de él mirándolo y pulsa Start. El bot guarda un estado ahí, recoge el huevo y recarga con nuevos números aleatorios hasta que el huevo sea variocolor. Entonces se detiene con el huevo variocolor en tu equipo: guarda la partida.</value>
+  </data>
+  <data name="BotDaycareEgg_NoEggYet" xml:space="preserve">
+    <value>El encargado de la Guardería aún no tiene un huevo: camina hasta que tenga uno, ponte delante de él y vuelve a empezar.</value>
+  </data>
+  <data name="BotDaycareEgg_PartyFull" xml:space="preserve">
+    <value>Tu equipo está lleno: haz sitio para el huevo primero.</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyReceived" xml:space="preserve">
+    <value>¡Huevo variocolor! Está en tu equipo: guarda la partida.</value>
+  </data>
+  <data name="BotDaycareEgg_NotReceived" xml:space="preserve">
+    <value>Ningún huevo tras {0} fotogramas hablando: ponte delante del encargado de la Guardería, mirándolo, y vuelve a empezar.</value>
   </data>
 </root>

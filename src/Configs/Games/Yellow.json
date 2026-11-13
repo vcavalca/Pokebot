@@ -1,0 +1,25 @@
+{
+  "Name": "Yellow",
+  "Code": 10,
+  "Hashs": [
+    {
+      "Hash": "cc7d03262ebfaf2f06772c1a480c7d9d5f4a38e1", //USA (Europe)
+      "Tested": false,
+      "Symbols": {
+        "Main": "pokeyellow",
+        "Patches": []
+      }
+    }
+  ],
+  "Generation": 1,
+  "Starters": [],
+  "PokeFinderTypes": [
+    {
+      "Name": "None",
+      "FrameAdvance": 0
+    }
+  ],
+  "BotsConfig": {
+    "Starter": null
+  }
+}

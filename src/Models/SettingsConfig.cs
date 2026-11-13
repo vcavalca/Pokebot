@@ -111,7 +111,7 @@ namespace Pokebot.Models
             }
         }
 
-        private static string GetDirectory()
+        public static string GetDirectory()
         {
             var appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             return Path.Combine(appData, "Pokebot");

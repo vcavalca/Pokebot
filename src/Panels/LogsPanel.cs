@@ -53,12 +53,32 @@ namespace Pokebot.Panels
             item.SubItems.Add(e.Message);
             item.Tag = e.Exception;
 
-            _logsListView.Items.Add(item);
-            for (int i = 0; i < _logsListView.Columns.Count; i++)
+            _logsListView.BeginUpdate();
+            try
             {
-                _logsListView.Columns[i].Width = -1;
+                _logsListView.Items.Add(item);
+                // One line per encounter / reset: keep the latest ones only, a long hunt would add thousands
+                while (_logsListView.Items.Count > MaxItems)
+                {
+                    _logsListView.Items.RemoveAt(0);
+                }
+
+                for (int i = 0; i < _logsListView.Columns.Count; i++)
+                {
+                    _logsListView.Columns[i].Width = -1;
+                }
             }
+            finally
+            {
+                _logsListView.EndUpdate();
+            }
+
+            // Follow the latest line
+            item.EnsureVisible();
         }
+
+        /// <summary>Lines kept in the Logs tab (the log file keeps everything).</summary>
+        private const int MaxItems = 1000;
 
         // Add these event handlers to the LogsPanel class
         private void LogsListView_MouseUp(object sender, MouseEventArgs e)

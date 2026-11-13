@@ -55,7 +55,9 @@ namespace Pokebot.Factories.Bots
                     return;
                 }
 
-                if (_lastEncountered?.Checksum != pokemon.Checksum)
+                // DS / 3DS: by PID, the checksum changes during the battle (e.g. when the foe uses PP)
+                var isNew = GameVersion.IsDsGame ? _lastEncountered?.PID != pokemon.PID : _lastEncountered?.Checksum != pokemon.Checksum;
+                if (isNew)
                 {
                     _lastEncountered = pokemon;
                     PokemonEncountered?.Invoke(pokemon);
@@ -63,7 +65,7 @@ namespace Pokebot.Factories.Bots
 
                 if (Control.FilterPanel.Comparator.Compare(pokemon))
                 {
-                    Log.Warn(Messages.Pokemon_FoundCatch);
+                    Log.Warn($"{pokemon.RealName}: {Messages.Pokemon_FoundCatch}");
                     PokemonFound?.Invoke(pokemon);
                     Stop();
                 }
@@ -99,7 +101,8 @@ namespace Pokebot.Factories.Bots
 
         public bool UseDelay()
         {
-            return true;
+            // The DS action runner paces its inputs by frames (held presses), so the bot runs every frame there
+            return !GameVersion.IsDsGame;
         }
 
         public void UpdateUI(GameState state)

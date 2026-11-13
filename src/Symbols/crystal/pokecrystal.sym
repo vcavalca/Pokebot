@@ -10,6 +10,7 @@ cf74 a 1 wMenuSelection
 c6d4 a 1 wNamingScreenType
 c6d3 a 1 wNamingScreenMaxNameLength
 dcd7 a 1 wPartyCount
+dcd8 a 07 wPartySpecies
 d4e6 a 1 wPlayerMapX
 d4e7 a 1 wPlayerMapY
 d4e8 a 1 wPlayerLastMapX

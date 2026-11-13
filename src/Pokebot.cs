@@ -18,10 +18,10 @@ using Pokebot.Models.Config;
 using Pokebot.Models.Player;
 using Pokebot.Models.Pokemons;
 using Pokebot.Panels;
-using Pokebot.Properties;
 using Pokebot.Services.DiscordPresence;
 using Pokebot.Services.DiscordWebhook;
 using Pokebot.Services.Github;
+using Pokebot.Utils;
 using Log = Pokebot.Utils.Log;
 
 namespace Pokebot
@@ -75,12 +75,15 @@ namespace Pokebot
 
         public PokemonWatcher? PokemonWatcher { get; private set; }
         public PokebotDebug? DebugWindow { get; private set; }
-        public GithubServices GithubServices { get; private set; }
+        public GithubServices? GithubServices { get; private set; }
         public DiscordWebhookServices? DiscordWebhookServices { get; private set; }
-        public DiscordPresenceService DiscordPresenceService { get; private set; }
+        public DiscordPresenceService? DiscordPresenceService { get; private set; }
         public FileVersionInfo PokebotVersion { get; }
 
         WaitTask? _waitTask;
+        GameState _lastLoggedState = GameState.Unknow;
+        bool _lastLoggedBotEnabled;
+        int _encounterCount;
 
         #region Init
 
@@ -92,29 +95,36 @@ namespace Pokebot
 
             InitializeComponent();
 
-            var configText = Encoding.UTF8.GetString(Resources.appconfig);
-            AppConfig = JsonConvert.DeserializeObject<AppConfig>(configText)!;
-            AppConfig.Generations.Add(GetGeneration(Resources.Gen2));
-            AppConfig.Generations.Add(GetGeneration(Resources.Gen3));
-            AppConfig.Versions.Add(GetVersionInfo(Resources.Gold));
-            AppConfig.Versions.Add(GetVersionInfo(Resources.Silver));
-            AppConfig.Versions.Add(GetVersionInfo(Resources.Crystal));
-            AppConfig.Versions.Add(GetVersionInfo(Resources.LeafGreen));
-            AppConfig.Versions.Add(GetVersionInfo(Resources.FireRed));
-            AppConfig.Versions.Add(GetVersionInfo(Resources.Ruby));
-            AppConfig.Versions.Add(GetVersionInfo(Resources.Saphire));
-            AppConfig.Versions.Add(GetVersionInfo(Resources.Emerald));
+            AppConfig = JsonConvert.DeserializeObject<AppConfig>(EmbeddedFiles.ReadText("Pokebot.appconfig.json"))!;
+            foreach (var resource in EmbeddedFiles.List("Pokebot.Configs.Generations."))
+            {
+                AppConfig.Generations.Add(JsonConvert.DeserializeObject<GenerationInfo>(EmbeddedFiles.ReadText(resource))!);
+            }
 
-            GithubServices = new GithubServices(AppConfig.Github.Url);
-            DiscordPresenceService = new DiscordPresenceService(AppConfig.DiscordRichPresence.ClientId, AppConfig.DiscordRichPresence.GithubUrl);
+            foreach (var resource in EmbeddedFiles.List("Pokebot.Configs.Games."))
+            {
+                AppConfig.Versions.Add(JsonConvert.DeserializeObject<VersionInfo>(EmbeddedFiles.ReadText(resource))!);
+            }
+
+            if (AppConfig.Github != null)
+            {
+                GithubServices = new GithubServices(AppConfig.Github.Url);
+            }
+
+            if (AppConfig.DiscordRichPresence != null && !string.IsNullOrWhiteSpace(AppConfig.DiscordRichPresence.ClientId))
+            {
+                DiscordPresenceService = new DiscordPresenceService(AppConfig.DiscordRichPresence.ClientId, AppConfig.DiscordRichPresence.GithubUrl);
+            }
+
             PokebotVersion = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
 
-            //_versionLabel.Text = $"{WindowTitleStatic} v{GetType().Assembly.GetName().Version}";
             _versionLabel.Text = $"{WindowTitleStatic} v{PokebotVersion.ProductVersion.Substring(0, 5)}";
             _newVersionLabel.Hide();
             _tabControl.Hide();
+            _bugButton.Visible = GithubServices != null;
+            _joinDiscordButton.Visible = !string.IsNullOrWhiteSpace(AppConfig.DiscordInvite);
 
-            FormClosed += (s, e) => DiscordPresenceService.Dispose();
+            FormClosed += (s, e) => DiscordPresenceService?.Dispose();
 
             CreateTabPages();
         }
@@ -123,26 +133,22 @@ namespace Pokebot
         {
             base.OnLoad(e);
 #if !DEBUG
-            var worker = new BackgroundWorker();
-            worker.DoWork += GetGithubLatestReleaseWorker;
-            worker.RunWorkerAsync();
+            if (GithubServices != null)
+            {
+                var worker = new BackgroundWorker();
+                worker.DoWork += GetGithubLatestReleaseWorker;
+                worker.RunWorkerAsync();
+            }
 #endif
-        }
-
-        private GenerationInfo GetGeneration(byte[] data)
-        {
-            var json = Encoding.UTF8.GetString(data);
-            return JsonConvert.DeserializeObject<GenerationInfo>(json)!;
-        }
-
-        private VersionInfo GetVersionInfo(byte[] data)
-        {
-            var json = Encoding.UTF8.GetString(data);
-            return JsonConvert.DeserializeObject<VersionInfo>(json)!;
         }
 
         private async void GetGithubLatestReleaseWorker(object sender, DoWorkEventArgs e)
         {
+            if (GithubServices == null || AppConfig.Github == null)
+            {
+                return;
+            }
+
             try
             {
                 var latestRelease = await GithubServices.GetLatestRelease(AppConfig.Github.Owner, AppConfig.Github.Repository);
@@ -270,7 +276,7 @@ namespace Pokebot
                         {
                             SetStatus(Messages.Rom_NotLoaded, Color.Red);
                             _testedStatus.Text = string.Empty;
-                            DiscordPresenceService.SetWaiting();
+                            DiscordPresenceService?.SetWaiting();
                         }
                         else
                         {
@@ -286,7 +292,7 @@ namespace Pokebot
                             _testedStatus.Text = string.Format(Messages.Status_Tested, GameVersion.HashData.Tested ? '✅' : '❌');
                             Log.Info(string.Format(Messages.Rom_Loaded, romName));
                             IsRomLoaded = true;
-                            DiscordPresenceService.SetPlaying(romName);
+                            DiscordPresenceService?.SetPlaying(romName);
                         }
                     }
                 }
@@ -303,13 +309,60 @@ namespace Pokebot
             }
         }
 
+        /// <summary>
+        /// True while <see cref="UpdateAfter"/> runs. When a bot loads a save state, BizHawk updates the tools again
+        /// before LoadState returns: that nested call would run the bot with its fields from before the load
+        /// (the Day-Care Egg bot reloaded 100 times in a row that way), so it is skipped.
+        /// </summary>
+        private bool _updating;
+
         protected override void UpdateAfter()
+        {
+            if (_updating)
+            {
+                return;
+            }
+
+            _updating = true;
+            try
+            {
+                UpdateAfterCore();
+            }
+            finally
+            {
+                _updating = false;
+            }
+        }
+
+        private void UpdateAfterCore()
         {
             try
             {
                 if (IsReady)
                 {
                     GameState state = GameVersion!.Memory.GetGameState();
+                    if (state != _lastLoggedState)
+                    {
+                        Log.Debug($"Game state: {_lastLoggedState} -> {state} (frame {APIContainer!.Emulation.FrameCount()})");
+                        _lastLoggedState = state;
+                    }
+
+                    var botEnabled = Bot?.Enabled == true;
+                    if (botEnabled != _lastLoggedBotEnabled)
+                    {
+                        Log.Debug($"Bot {(botEnabled ? "enabled" : "disabled")} (frame {APIContainer!.Emulation.FrameCount()})");
+                        _lastLoggedBotEnabled = botEnabled;
+                    }
+
+                    // Queued inputs last several frames, so they are applied on every frame (not only when the bot runs)
+                    if (Bot?.Enabled == true)
+                    {
+                        GameVersion.Runner.Update();
+                    }
+                    else
+                    {
+                        GameVersion.Runner.ClearInputs();
+                    }
 
                     if (PokemonWatcher != null)
                     {
@@ -381,12 +434,18 @@ namespace Pokebot
 
         private void _bugButton_Click(object sender, EventArgs e)
         {
-            GithubServices.OpenIssues(AppConfig.Github.Owner, AppConfig.Github.Repository);
+            if (GithubServices != null && AppConfig.Github != null)
+            {
+                GithubServices.OpenIssues(AppConfig.Github.Owner, AppConfig.Github.Repository);
+            }
         }
 
         private void _joinDiscordButton_Click(object sender, EventArgs e)
         {
-            Process.Start(AppConfig.DiscordInvite);
+            if (!string.IsNullOrWhiteSpace(AppConfig.DiscordInvite))
+            {
+                Process.Start(AppConfig.DiscordInvite);
+            }
         }
 
         #endregion
@@ -401,7 +460,7 @@ namespace Pokebot
 
             DiscordWebhookServices = new DiscordWebhookServices(
                 settingsConfig.DiscordWebhook,
-                AppConfig.DiscordAdsWebhook,
+                AppConfig.DiscordAdsWebhook!,
                 settingsConfig.DiscordUserID
             );
         }
@@ -433,7 +492,7 @@ namespace Pokebot
                 BotPanel.SetBot(Bot);
 
                 var botName = AppConfig.BotTypes.FirstOrDefault(x => x.Code == (int)code)?.Name ?? code.ToString();
-                DiscordPresenceService.SetBotType(botName);
+                DiscordPresenceService?.SetBotType(botName);
             }
         }
 
@@ -441,12 +500,14 @@ namespace Pokebot
         {
             if (enabled)
             {
+                _encounterCount = 0;
+                Log.Info($"{Messages.Viewer_IVsGroup}: {Pokemon.LogIVsOrder}");
                 EncounterStatsPanel.Clear();
-                DiscordPresenceService.SetBotStarted();
+                DiscordPresenceService?.SetBotStarted();
             }
             else
             {
-                DiscordPresenceService.SetBotStopped();
+                DiscordPresenceService?.SetBotStopped();
             }
         }
 
@@ -462,8 +523,21 @@ namespace Pokebot
 
         private void Bot_PokemonEncountered(Pokemon pokemon)
         {
+            // Every encounter / reset in the Logs tab (and the log file), numbered since the bot was started.
+            // Shiny ones in orange (Warn) so they stand out.
+            _encounterCount++;
+            var summary = $"#{_encounterCount} {pokemon.GetLogSummary()}";
+            if (pokemon.IsShiny)
+            {
+                Log.Warn(summary);
+            }
+            else
+            {
+                Log.Info(summary);
+            }
+
             EncounterStatsPanel.AddPokemonStat(pokemon);
-            DiscordPresenceService.IncrementEncountered();
+            DiscordPresenceService?.IncrementEncountered();
         }
 
         #endregion

@@ -61,9 +61,9 @@ namespace Pokebot.Utils
 
         public static bool HasSaveState(this IEmuClientApi emuClient, string name)
         {
+            // BizHawk keeps the states per system (GBA, NDS, 3DS); the state names start with the game name
             var directory = Environment.CurrentDirectory;
-            var fullDirectory = Path.Combine(directory, "GBA", "State", $"{name}.State");
-            return File.Exists(fullDirectory);
+            return new[] { "GBA", "NDS", "3DS" }.Any(system => File.Exists(Path.Combine(directory, system, "State", $"{name}.State")));
         }
 
         public static bool LoadOrStop(this IEmuClientApi emuClient, string name)

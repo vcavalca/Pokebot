@@ -84,6 +84,28 @@ namespace Pokebot.Models.Pokemons
             Gender = gender;
             MemoryLocation = memoryLocation;
         }
+        /// <summary>IV order used by <see cref="GetLogSummary"/>.</summary>
+        public const string LogIVsOrder = "HP/Atk/Def/SpA/SpD/Spe";
+
+        /// <summary>
+        /// One line with the main info, written in the Logs tab for every encounter / reset. The most useful parts
+        /// come first (the tab cuts long lines), e.g.
+        /// "Uxie Lv.50 | Not shiny | IVs 31/31/27/15/29/8 = 141 | Nature: Impish | Ability: Levitate | Genderless | PID: 96A7399A"
+        /// </summary>
+        public string GetLogSummary()
+        {
+            var level = this is PartyPokemon party ? $" Lv.{party.Level}" : string.Empty;
+            var ivTotal = IVs.HP + IVs.Attack + IVs.Defense + IVs.SpAttack + IVs.SpDefense + IVs.Speed;
+            return string.Join(" | ",
+                $"{RealName}{level}",
+                IsShiny ? Messages.Viewer_Shiny.ToUpperInvariant() : Messages.Viewer_NotShiny,
+                $"{Messages.Viewer_IVsGroup} {IVs.HP}/{IVs.Attack}/{IVs.Defense}/{IVs.SpAttack}/{IVs.SpDefense}/{IVs.Speed} = {ivTotal}",
+                string.Format(Messages.Viewer_Nature, Nature?.Name ?? "N/A"),
+                string.Format(Messages.Viewer_Ability, Ability ?? "N/A"),
+                GetGenderMessage(),
+                string.Format(Messages.Viewer_PID, PID.ToString("X8")));
+        }
+
         public string GetGenderMessage()
         {
             switch (Gender)

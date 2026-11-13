@@ -39,7 +39,7 @@ namespace Pokebot.Factories.Bots
             }
             else
             {
-                APIContainer.Joypad.Set("A", true);
+                GameVersion.Runner.ReceivePokemon();
             }
         }
 

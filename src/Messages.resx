@@ -123,6 +123,20 @@
   <data name="AppName" xml:space="preserve">
     <value>Pokebot</value>
   </data>
+  <data name="BotEggHatch_AllHatched" xml:space="preserve">
+    <value>All eggs have hatched.</value>
+  </data>
+  <data name="BotEggHatch_Help" xml:space="preserve">
+    <value>Stand on a straight path with eggs in your party, facing the way you want to walk, then press Start. The bot walks until something blocks the way, turns around and keeps going until every egg hatches (it answers NO to the nickname question).
+
+There are no filters: an egg is already decided when you receive it, hatching can't make it shiny. To get another Pokemon, reset before receiving the egg.</value>
+  </data>
+  <data name="BotEggHatch_NoEgg" xml:space="preserve">
+    <value>There is no egg in your party.</value>
+  </data>
+  <data name="BotEggHatch_ShinyHatched" xml:space="preserve">
+    <value>A shiny Pokemon hatched!</value>
+  </data>
   <data name="BotFactory_NotSupported" xml:space="preserve">
     <value>Bot type is not supported</value>
   </data>
@@ -465,4 +479,40 @@
   <data name="Viewer_MovesGroup" xml:space="preserve">
     <value>Moves</value>
   </data>
-</root>
+  <data name="BotFishing_NoRod" xml:space="preserve">
+    <value>Register a fishing rod on Y (Bag &gt; Key Items &gt; Register) and stand facing the water before starting. HeartGold/SoulSilver and Gen 5 (Super Rod): the rod must be the only registered item.</value>
+  </data>
+  <data name="BotFishing_NothingCaught" xml:space="preserve">
+    <value>No Pokemon after {0} casts in a row: make sure you are facing water where you can fish.</value>
+  </data>
+  <data name="BotDaycareEgg_Help" xml:space="preserve">
+    <value>Deposit two Pokemon that can breed at the Day-Care (Solaceon Town in Diamond/Pearl/Platinum, Route 34 in HeartGold/SoulSilver; the Day-Care Man must not have an egg waiting), stand on a straight path without trainers or tall grass, facing the way to walk, then press Start. The bot walks until just before the next egg check, saves a state there and reloads it with new random numbers until the egg the Day-Care Man gets is shiny. It then stops: walk to the Day-Care Man and take the egg (its IVs are decided when you take it), and save in the game.</value>
+  </data>
+  <data name="BotDaycareEgg_NeedTwo" xml:space="preserve">
+    <value>Deposit two Pokemon that can breed at the Day-Care first.</value>
+  </data>
+  <data name="BotDaycareEgg_EggWaiting" xml:space="preserve">
+    <value>The Day-Care Man already has an egg: take it (or refuse it) before starting.</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyFound" xml:space="preserve">
+    <value>Shiny egg! Walk to the Day-Care Man and take it, then save in the game.</value>
+  </data>
+  <data name="BotDaycareEgg_NoEgg" xml:space="preserve">
+    <value>No egg after {0} tries: these two Pokemon can't breed together.</value>
+  </data>
+  <data name="BotDaycareEgg_HelpGen5" xml:space="preserve">
+    <value>Black/White/Black 2/White 2 (Day-Care on Route 3) and Omega Ruby/Alpha Sapphire (Route 117): the egg is only decided when you take it. Deposit two Pokemon that can breed and walk until the Day-Care Man (outside, by the door) has an egg for you. Make room in your party, stand in front of him facing him, then press Start. The bot saves a state there, takes the egg and reloads with new random numbers until the egg is shiny. It then stops with the shiny egg in your party: save in the game.</value>
+  </data>
+  <data name="BotDaycareEgg_NoEggYet" xml:space="preserve">
+    <value>The Day-Care Man has no egg yet: walk around until he has one, then stand in front of him and start again.</value>
+  </data>
+  <data name="BotDaycareEgg_PartyFull" xml:space="preserve">
+    <value>Your party is full: make room for the egg first.</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyReceived" xml:space="preserve">
+    <value>Shiny egg! It is in your party: save in the game.</value>
+  </data>
+  <data name="BotDaycareEgg_NotReceived" xml:space="preserve">
+    <value>No egg after {0} frames of talking: stand in front of the Day-Care Man, facing him, and start again.</value>
+  </data>
+</root>

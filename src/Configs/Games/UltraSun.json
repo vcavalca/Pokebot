@@ -1,0 +1,66 @@
+{
+  "Name": "UltraSun",
+  "Code": 26,
+  "Hashs": [
+    {
+      "Hash": "3FBA0C2CAE3666C2657468A32513666F",
+      "Tested": true
+    },
+    {
+      "Hash": "4E8DC4584D76FEDDD5CB44B84328F098",
+      "Tested": false
+    }
+  ],
+  "Generation": 7,
+  "Pointers": {
+    "Anchor": "0x0",
+    "PartyCount": "0x03F7F9D0",
+    "Party": "0x03F7FA44",
+    "PartySlotStride": "0x1E4",
+    "PartyStats": "0x158",
+    "TrainerName": "0x03012850",
+    "TrainerId": "0x03012818",
+    "MapHeader": "0x0",
+    "Facing": "0x0",
+    "FoeAnchor": "0x0",
+    "Foe": "0x0002F9A0",
+    "BattleIndicator": "0x0",
+    "PlayerX": "0x003A55A8",
+    "PlayerY": "0x003A55AC",
+    "PlayerZ": "0x003A55B0",
+    "Rng": "0x0",
+    "Mt": "0x030D35CC",
+    "MtIndex": "0x030D3F8C",
+    "MtSeedIndex": 624,
+    "StarterSelected": "0x02AEE1E0",
+    "StartersReady": "0x0",
+    "StartersReadyMask": "0x0",
+    "StarterData": "0x029C2C74",
+    "StarterMenuVertical": true,
+    "PlayerBattler": "0x0002E258",
+    "BattleFlag": "0x000003A4",
+    "RunSequence": [
+      "Down",
+      "Down",
+      "Down",
+      "A"
+    ],
+    "AnalogMovement": true,
+    "BattleMenuState": "0x0"
+  },
+  "Starters": [
+    {
+      "PositionIndex": 0,
+      "PokemonId": 722
+    },
+    {
+      "PositionIndex": 1,
+      "PokemonId": 725
+    },
+    {
+      "PositionIndex": 2,
+      "PokemonId": 728
+    }
+  ],
+  "BotsConfig": null
+}

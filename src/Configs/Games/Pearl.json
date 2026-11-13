@@ -1,0 +1,62 @@
+{
+  "Name": "Pearl",
+  "Code": 12,
+  "Hashs": [
+    {
+      "Hash": "E5DA92C8CFABEDD0D037FF33A2F2B6BA", //USA (Rev 5)
+      "Tested": true
+    },
+    {
+      "Hash": "4424FBDDF110CFC68506B9D135CE311F", //USA (Rev 5), other dump
+      "Tested": false
+    }
+  ],
+  "Generation": 4,
+  "Pointers": {
+    "Anchor": "0x021C489C",
+    "SaveLoaded": "0x021066DC",
+    "PartyCount": "0xE",
+    "Party": "0x12",
+    "TrainerName": "-0x22",
+    "TrainerId": "-0x12",
+    "MapHeader": "0x11B2",
+    "Facing": "0x247C6",
+    "FoeAnchor": "0x226FE",
+    "FoeCount": "-0x2B74",
+    "Foe": "-0x2B70",
+    "BattleMenuState": "0x455A6",
+    "BattleIndicator": "0x021A1B2A",
+    "PlayerX": "0x021CEF70",
+    "PlayerY": "0x021CEF74",
+    "PlayerZ": "0x021CEF78",
+    "Rng": "0x021C4D48",
+    "Mt": "0x021C4D4C",
+    "MtIndex": "0x02105BB0",
+    "Daycare": "0x1396",
+    "DaycareSlotSize": "0xEC",
+    "DaycareOffspring": "0x156E",
+    "RegisteredItem": "0xD0E",
+    "KeyItems": "0x832",
+    "FishingBite": "0x021D5E16",
+    "StarterSelected": "0x427A6",
+    "StartersReady": "0x4282A",
+    "StartersReadyMask": "0x5",
+    "Bike": "0x1242",
+    "BikeGear": "0x123E"
+  },
+  "Starters": [
+    {
+      "PositionIndex": 0,
+      "PokemonId": 387
+    },
+    {
+      "PositionIndex": 1,
+      "PokemonId": 390
+    },
+    {
+      "PositionIndex": 2,
+      "PokemonId": 393
+    }
+  ],
+  "BotsConfig": null
+}

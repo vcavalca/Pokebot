@@ -10,6 +10,7 @@ CEAB a 1 wMenuSelection
 C5D4 a 1 wNamingScreenType
 C5D3 a 1 wNamingScreenMaxNameLength
 DA22 a 1 wPartyCount
+DA23 a 07 wPartySpecies
 D20D a 1 wPlayerMapX
 D20E a 1 wPlayerMapY
 D20F a 1 wPlayerLastMapX

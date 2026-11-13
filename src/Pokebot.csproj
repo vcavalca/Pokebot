@@ -47,16 +47,6 @@
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
-	  <Compile Update="Images\ResourcesPokemon.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>ResourcesPokemon.resx</DependentUpon>
-	  </Compile>
-	  <Compile Update="Images\ResourcesPokemonShiny.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>ResourcesPokemonShiny.resx</DependentUpon>
-	  </Compile>
 	  <Compile Update="Messages.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -68,26 +58,8 @@
 	  <Compile Update="Panels\Tools\RubySapphire\GObjectEventsScannerPanel.cs">
 	    <SubType>UserControl</SubType>
 	  </Compile>
-	  <Compile Update="Properties\Resources.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>Resources.resx</DependentUpon>
-	  </Compile>
-	  <Compile Update="Symbols\ResourceSymbols.Designer.cs">
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	    <DependentUpon>ResourceSymbols.resx</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 	<ItemGroup>
-	  <EmbeddedResource Update="Images\ResourcesPokemon.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>ResourcesPokemon.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Images\ResourcesPokemonShiny.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>ResourcesPokemonShiny.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
 	  <EmbeddedResource Update="Messages.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Messages.Designer.cs</LastGenOutput>
@@ -112,22 +84,20 @@
 	    <WithCulture>false</WithCulture>
 	    <LogicalName>Pokebot.Messages.ja.resources</LogicalName>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Properties\Resources.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Symbols\ResourceSymbols.resx">
-	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>ResourceSymbols.Designer.cs</LastGenOutput>
-	  </EmbeddedResource>
 	</ItemGroup>
+	<!--
+	  Plain embedded files (no binary .resx, so `dotnet build` works without Visual Studio), read with
+	  Utils/EmbeddedFiles.cs: the app config, the game / generation configs (Gen 1-7), the pret symbol files
+	  (Gen 1-3, by file name) and the sprites by national dex number (001-649).
+	-->
 	<ItemGroup>
-	  <None Update="Configs\Generations\Gen2.json">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </None>
-	  <None Update="Configs\Generations\Gen3.json">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </None>
+	  <None Remove="appconfig.json;Configs\**;Images\**;Symbols\**" />
+	  <EmbeddedResource Include="appconfig.json" LogicalName="Pokebot.appconfig.json" />
+	  <EmbeddedResource Include="Configs\Games\*.json" LogicalName="Pokebot.Configs.Games.%(Filename)%(Extension)" />
+	  <EmbeddedResource Include="Configs\Generations\*.json" LogicalName="Pokebot.Configs.Generations.%(Filename)%(Extension)" />
+	  <EmbeddedResource Include="Symbols\**\*.sym" LogicalName="Pokebot.Symbols.%(Filename)%(Extension)" />
+	  <EmbeddedResource Include="Images\normal\???.png" LogicalName="Pokebot.Images.normal.%(Filename)%(Extension)" />
+	  <EmbeddedResource Include="Images\shiny\???.png" LogicalName="Pokebot.Images.shiny.%(Filename)%(Extension)" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Symbols\silver\" />

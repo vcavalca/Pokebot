@@ -64,6 +64,20 @@
   <data name="AppName" xml:space="preserve">
     <value>Pokebot</value>
   </data>
+  <data name="BotEggHatch_AllHatched" xml:space="preserve">
+    <value>すべてのタマゴがかえりました。</value>
+  </data>
+  <data name="BotEggHatch_Help" xml:space="preserve">
+    <value>手持ちにタマゴを入れて、まっすぐな道で歩きたい方向を向いてから「開始」を押してください。ボットは何かにぶつかるまで歩き、向きを変えて、すべてのタマゴがかえるまで歩き続けます（ニックネームの質問には「いいえ」と答えます）。
+
+フィルターはありません。タマゴの中身は受け取った時点で決まっているため、かえす時に色違いにすることはできません。別のポケモンにしたい場合は、タマゴを受け取る前からやり直してください。</value>
+  </data>
+  <data name="BotEggHatch_NoEgg" xml:space="preserve">
+    <value>手持ちにタマゴがありません。</value>
+  </data>
+  <data name="BotEggHatch_ShinyHatched" xml:space="preserve">
+    <value>色違いのポケモンがかえりました！</value>
+  </data>
   <data name="BotFactory_NotSupported" xml:space="preserve">
     <value>このボットタイプはサポートされていません</value>
   </data>
@@ -405,5 +419,41 @@
   </data>
   <data name="Path_Up" xml:space="preserve">
     <value>上</value>
+  </data>
+  <data name="BotFishing_NoRod" xml:space="preserve">
+    <value>つりざおを Y に とうろくし (バッグ &gt; たいせつなもの &gt; とうろく)、みずの ほうを むいてから スタートしてください。ハートゴールド・ソウルシルバーと だい5せだい (すごいつりざお) では つりざおだけを とうろくしてください。</value>
+  </data>
+  <data name="BotFishing_NothingCaught" xml:space="preserve">
+    <value>{0} かい れんぞくで ポケモンが つれません: つりが できる みずの ほうを むいているか かくにんしてください。</value>
+  </data>
+  <data name="BotDaycareEgg_Help" xml:space="preserve">
+    <value>そだてや (ダイヤモンド・パール・プラチナは ズイタウン、ハートゴールド・ソウルシルバーは 34ばんどうろ) に タマゴが できる 2ひきを あずけ (タマゴが まっていない じょうたいで)、トレーナーや くさむらの ない まっすぐな みちで あるく ほうこうを むいて スタートを おしてください。ボットは つぎの タマゴ チェックの すこし まえまで あるいて ステートを ほぞんし、そだてやの じいさんの タマゴが いろちがいに なるまで あたらしい らんすうで よみこみなおします。とまったら じいさんから タマゴを もらって (こたいちは もらうときに きまります) ゲームで レポートしてください。</value>
+  </data>
+  <data name="BotDaycareEgg_NeedTwo" xml:space="preserve">
+    <value>まず タマゴが できる 2ひきを そだてやに あずけてください。</value>
+  </data>
+  <data name="BotDaycareEgg_EggWaiting" xml:space="preserve">
+    <value>そだてやの じいさんが もう タマゴを もっています: スタートの まえに もらうか ことわってください。</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyFound" xml:space="preserve">
+    <value>いろちがいの タマゴ! そだてやの じいさんから もらって ゲームで レポートしてください。</value>
+  </data>
+  <data name="BotDaycareEgg_NoEgg" xml:space="preserve">
+    <value>{0} かい ためしても タマゴが できません: この 2ひきは タマゴを つくれません。</value>
+  </data>
+  <data name="BotDaycareEgg_HelpGen5" xml:space="preserve">
+    <value>ブラック・ホワイト・ブラック2・ホワイト2 (3ばんどうろの そだてや)・オメガルビー・アルファサファイア (117ばんどうろ): タマゴは うけとった ときに きまります。タマゴを つくれる 2ひきを あずけて、そだてやの おじいさん (そとの ドアの まえ) が タマゴを もつまで あるいてください。てもちに あきを つくり、おじいさんの まえで むきあって スタートを おしてください。ボットは そこで ステートを セーブし、タマゴを うけとって、いろちがいに なるまで あたらしい らんすうで ロードしなおします。いろちがいの タマゴが てもちに はいったら とまるので、ゲームで セーブしてください。</value>
+  </data>
+  <data name="BotDaycareEgg_NoEggYet" xml:space="preserve">
+    <value>そだてやの おじいさんは まだ タマゴを もっていません。タマゴが できるまで あるいてから、おじいさんの まえで もういちど スタートしてください。</value>
+  </data>
+  <data name="BotDaycareEgg_PartyFull" xml:space="preserve">
+    <value>てもちが いっぱいです。さきに タマゴの ための あきを つくってください。</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyReceived" xml:space="preserve">
+    <value>いろちがいの タマゴです! てもちに はいっているので、ゲームで セーブしてください。</value>
+  </data>
+  <data name="BotDaycareEgg_NotReceived" xml:space="preserve">
+    <value>{0} フレーム はなしても タマゴを もらえません。そだてやの おじいさんの まえで むきあってから もういちど スタートしてください。</value>
   </data>
 </root>

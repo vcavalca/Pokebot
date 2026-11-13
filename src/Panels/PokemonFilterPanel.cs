@@ -25,6 +25,10 @@ namespace Pokebot.Panels
             _shinyHackIcon.Image = SystemIcons.Information.ToBitmap();
 
             Comparator = new PokemonComparator();
+
+            // Hunting shinies is the main use: with no filter at all every Pokemon "matches" and the bot stops
+            // at the first encounter, which looks like the bot failing to flee.
+            _shinyCheckbox.Checked = true;
         }
 
         private void ApplyTranslations()

@@ -50,6 +50,36 @@ The language can be changed at any time from the **Settings** tab. A restart is 
 
 # <a name="supported-games"></a>Supported Games
 <details>
+  <summary>Pokemon Red</summary>
+
+ | Nom          | Hash                                     | Supported | Tested |
+ |--------------|------------------------------------------|-----------|--------|
+ | USA (Europe) | ea9bcae617fdf159b045185467ae58b2e4a48b9a |     ✅     |    ❌   |
+</details>
+
+<details>
+  <summary>Pokemon Blue</summary>
+
+ | Nom          | Hash                                     | Supported | Tested |
+ |--------------|------------------------------------------|-----------|--------|
+ | USA (Europe) | d7037c83e1ae5b39bde3c30787637ba1d4c48ce2 |     ✅     |    ❌   |
+</details>
+
+<details>
+  <summary>Pokemon Yellow</summary>
+
+ | Nom          | Hash                                     | Supported | Tested |
+ |--------------|------------------------------------------|-----------|--------|
+ | USA (Europe) | cc7d03262ebfaf2f06772c1a480c7d9d5f4a38e1 |     ✅     |    ❌   |
+
+ > The Starter bot is not available for Yellow (Pikachu is given during a cutscene).
+</details>
+
+> Gen 1 has no shiny Pokémon: "shiny" uses the Gen 2 DV rule (what the Pokémon becomes once traded to Gen 2 / transferred). Gen 1 has no gender either.
+>
+> Spin bot in Gen 1: the player can't turn in place to find wild Pokémon, so the bot walks one step towards where the player faces and back, repeatedly. Stand in tall grass facing a grass tile (it switches sides if blocked).
+
+<details>
   <summary>Pokemon Gold</summary>
 
  | Nom          | Hash                                     | Supported | Tested |
@@ -208,6 +238,8 @@ The language can be changed at any time from the **Settings** tab. A restart is 
   * This bot will press A at the specified frame. Sometimes the hit frame is different from the specified frame. In this case, you can use PokeFinder to find the hit frame and include it in the bot for adjustment. (To use this bot, your emulator must simulate dead battery)
 * Fishing
   * This bot will use the registered tool (SELECT) and will try to start fishing and wait for battle and see if it matches your set filters. If not, it will leave and retry.
+* Egg Hatch (Gen 2 and 3)
+  * Stand on a straight path with eggs in your party, facing the way you want to walk. The bot walks forward until something blocks the way, then walks back, until every egg hatches (it answers NO to the nickname question). It has no filters: the egg is already decided when you receive it (DVs in Gen 2, PID and IVs in Gen 3), so hatching can't make it shiny. Hatched pokemon are added to the stats and shiny ones are notified.
 
 ## <a name="export-save"></a>How to export save file
 BizHawk saves game data in the `GBA/SaveRam` or `Gameboy/SaveRam` directory. To export this save as a `.sav` extension for most games, you can simply rename the file extension to `.sav` without having to make any changes. 
@@ -223,7 +255,6 @@ The code documentation is available on [Wiki](https://github.com/Kakumi/Pokebot/
 * Add feature to PokeFinder bot to save before the specified frame and not at start.
 * Read seed
 * Transform SaveRam to sav file automatically
-* Gen 1 support
 
 <details>
 	<summary>Done</summary>
@@ -235,6 +266,7 @@ The code documentation is available on [Wiki](https://github.com/Kakumi/Pokebot/
 * Add bot for static pokemon️ ✔️
 * Save & load settings to/from config file ✔️
 * Add bot for fishing ✔️
+* Gen 1 support ✔️
 </details>
 
 # <a name="known-bugs"></a> Known bugs
@@ -247,6 +279,7 @@ _Yeah! There's nothing here!_
 * [Pokemon Memory Reader](https://github.com/NathanTBeene/pokemon-memory-reader)
 * [Bulbapedia Pokemon Data Structure GEN 3](https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_data_structure_(Generation_III))
 * [Bulbapedia Pokemon Data Structure GEN 2](https://bulbapedia.bulbagarden.net/wiki/Pokémon_data_structure_(Generation_II))
+* [Pokemon Red/Blue Decompilation](https://github.com/pret/pokered) & [Pokemon Yellow Decompilation](https://github.com/pret/pokeyellow)
 * [PokéAPI](https://pokeapi.co/)
 * [PokeFinder](https://github.com/Admiral-Fish/PokeFinder)
 * [Hexa to Decimal Converter](https://www.rapidtables.com/convert/number/hex-to-decimal.html)

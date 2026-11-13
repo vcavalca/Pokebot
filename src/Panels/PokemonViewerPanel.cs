@@ -1,5 +1,5 @@
-﻿using Pokebot.Images;
-using Pokebot.Models.Pokemons;
+﻿using Pokebot.Models.Pokemons;
+using Pokebot.Utils;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -34,16 +34,14 @@ namespace Pokebot.Panels
             _hiddenPowerType.Text = string.Format(Messages.Viewer_HiddenPowerType, pokemon.HiddenPower?.Name ?? "N/A");
             _hiddenPowerDamage.Text = string.Format(Messages.Viewer_HiddenPowerDamage, pokemon.HiddenPowerDamage);
             _itemLabel.Text = string.Format(Messages.Viewer_Item, pokemon.HeldItem?.Name ?? Messages.Item_Nothing);
-            var imageName = pokemon.RealName.ToLower().Replace("-", "_");
+            _pokemonPictureBox.Image = EmbeddedFiles.GetPokemonImage(pokemon.DexId, pokemon.IsShiny);
             if (pokemon.IsShiny)
             {
-                _pokemonPictureBox.Image = (Image)ResourcesPokemonShiny.ResourceManager.GetObject(imageName);
                 _shinyLabel.Text = Messages.Viewer_Shiny;
                 _shinyLabel.ForeColor = Color.Green;
             }
             else
             {
-                _pokemonPictureBox.Image = (Image)ResourcesPokemon.ResourceManager.GetObject(imageName);
                 _shinyLabel.Text = Messages.Viewer_NotShiny;
                 _shinyLabel.ForeColor = Color.Red;
             }

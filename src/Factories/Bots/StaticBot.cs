@@ -67,6 +67,7 @@ namespace Pokebot.Factories.Bots
                 APIContainer.EmuClient.SaveState(GetSaveStateName());
             }
 
+            GameVersion.Runner.ClearInputs();
             UpdateRNG();
         }
 
@@ -91,7 +92,7 @@ namespace Pokebot.Factories.Bots
 
             if (pokemon != null && Control.FilterPanel.Comparator.Compare(pokemon))
             {
-                Log.Warn(Messages.Pokemon_FoundCatch);
+                Log.Warn($"{pokemon.RealName}: {Messages.Pokemon_FoundCatch}");
                 PokemonFound?.Invoke(pokemon);
                 Stop();
             }
@@ -99,6 +100,7 @@ namespace Pokebot.Factories.Bots
             {
                 if (APIContainer.EmuClient.LoadOrStop(GetSaveStateName()))
                 {
+                    GameVersion.Runner.ClearInputs();
                     UpdateRNG();
                 }
             }
@@ -129,7 +131,8 @@ namespace Pokebot.Factories.Bots
 
         public bool UseDelay()
         {
-            return true;
+            // The DS action runner paces its inputs by frames, the bot runs every frame there
+            return !GameVersion.IsDsGame;
         }
 
         public void UpdateUI(GameState state)

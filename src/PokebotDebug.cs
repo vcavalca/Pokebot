@@ -13,7 +13,6 @@ using Pokebot.Models;
 using Pokebot.Models.Player;
 using Pokebot.Models.Tools;
 using Pokebot.Panels.Tools;
-using Pokebot.Symbols;
 using Pokebot.Utils;
 
 namespace Pokebot
@@ -488,7 +487,7 @@ namespace Pokebot
 
         private void searchPlayer()
         {
-            var mainFileData = ResourceSymbols.ResourceManager.GetObject(GameVersion.HashData.Symbols.Main) as byte[];
+            var mainFileData = EmbeddedFiles.GetSymbolFile(GameVersion.HashData.Symbols!.Main)!;
             var defaultSymbols = SymbolUtil.Load(mainFileData).ToList();
 
             var avatarSymbol = defaultSymbols.First(x => x.Name == "gPlayerAvatar");
@@ -504,7 +503,7 @@ namespace Pokebot
         private void _copyAddresses_Click(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder();
-            var mainFileData = ResourceSymbols.ResourceManager.GetObject(GameVersion.HashData.Symbols.Main) as byte[];
+            var mainFileData = EmbeddedFiles.GetSymbolFile(GameVersion.HashData.Symbols!.Main)!;
             var defaultSymbols = SymbolUtil.Load(mainFileData).ToList();
 
             foreach (Symbol symbol in _correctedSymbols)

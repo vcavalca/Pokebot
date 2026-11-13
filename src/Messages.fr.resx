@@ -64,6 +64,20 @@
   <data name="AppName" xml:space="preserve">
     <value>Pokebot</value>
   </data>
+  <data name="BotEggHatch_AllHatched" xml:space="preserve">
+    <value>Tous les œufs ont éclos.</value>
+  </data>
+  <data name="BotEggHatch_Help" xml:space="preserve">
+    <value>Placez-vous sur un chemin droit avec des œufs dans l'équipe, tourné vers la direction de marche, puis appuyez sur Démarrer. Le bot marche jusqu'à être bloqué, fait demi-tour et continue jusqu'à l'éclosion de tous les œufs (il répond NON à la question du surnom).
+
+Il n'y a pas de filtres : un œuf est déjà déterminé à sa réception, l'éclosion ne peut pas le rendre chromatique. Pour obtenir un autre Pokémon, rechargez avant de recevoir l'œuf.</value>
+  </data>
+  <data name="BotEggHatch_NoEgg" xml:space="preserve">
+    <value>Il n'y a aucun œuf dans votre équipe.</value>
+  </data>
+  <data name="BotEggHatch_ShinyHatched" xml:space="preserve">
+    <value>Un Pokémon chromatique a éclos !</value>
+  </data>
   <data name="BotFactory_NotSupported" xml:space="preserve">
     <value>Ce type de bot n'est pas supporté</value>
   </data>
@@ -405,5 +419,41 @@
   </data>
   <data name="Path_Up" xml:space="preserve">
     <value>Haut</value>
+  </data>
+  <data name="BotFishing_NoRod" xml:space="preserve">
+    <value>Enregistrez une canne sur Y (Sac &gt; Objets rares &gt; Enregistrer) et placez-vous face à l'eau avant de démarrer. HeartGold/SoulSilver et 5e génération (Super Canne) : la canne doit être le seul objet enregistré.</value>
+  </data>
+  <data name="BotFishing_NothingCaught" xml:space="preserve">
+    <value>Aucun Pokemon après {0} lancers d'affilée : vérifiez que vous êtes face à une eau où l'on peut pêcher.</value>
+  </data>
+  <data name="BotDaycareEgg_Help" xml:space="preserve">
+    <value>Déposez deux Pokemon pouvant se reproduire à la Pension (Bonville dans Diamant/Perle/Platine, Route 34 dans HeartGold/SoulSilver; le Papi ne doit pas avoir d'œuf en attente), placez-vous sur un chemin droit sans dresseurs ni hautes herbes, tourné vers la direction de marche, puis appuyez sur Démarrer. Le bot marche jusqu'à juste avant le prochain test d'œuf, sauvegarde un état à cet endroit et le recharge avec de nouveaux nombres aléatoires jusqu'à ce que l'œuf du Papi soit chromatique. Il s'arrête alors : allez voir le Papi, prenez l'œuf (ses IVs sont fixés quand vous le prenez) et sauvegardez dans le jeu.</value>
+  </data>
+  <data name="BotDaycareEgg_NeedTwo" xml:space="preserve">
+    <value>Déposez d'abord deux Pokemon pouvant se reproduire à la Pension.</value>
+  </data>
+  <data name="BotDaycareEgg_EggWaiting" xml:space="preserve">
+    <value>Le Papi de la Pension a déjà un œuf : prenez-le (ou refusez-le) avant de démarrer.</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyFound" xml:space="preserve">
+    <value>Œuf chromatique ! Allez voir le Papi de la Pension, prenez-le puis sauvegardez dans le jeu.</value>
+  </data>
+  <data name="BotDaycareEgg_NoEgg" xml:space="preserve">
+    <value>Aucun œuf après {0} essais : ces deux Pokemon ne peuvent pas se reproduire.</value>
+  </data>
+  <data name="BotDaycareEgg_HelpGen5" xml:space="preserve">
+    <value>Noire/Blanche/Noire 2/Blanche 2 (Pension de la Route 3) et Rubis Oméga/Saphir Alpha (Route 117) : l'œuf n'est décidé qu'au moment où vous le prenez. Déposez deux Pokemon qui peuvent se reproduire et marchez jusqu'à ce que le Monsieur de la Pension (dehors, près de la porte) ait un œuf pour vous. Faites de la place dans l'équipe, placez-vous face à lui, puis appuyez sur Start. Le bot sauvegarde un état à cet endroit, prend l'œuf et recharge avec de nouveaux nombres aléatoires jusqu'à ce que l'œuf soit chromatique. Il s'arrête alors avec l'œuf chromatique dans l'équipe : sauvegardez dans le jeu.</value>
+  </data>
+  <data name="BotDaycareEgg_NoEggYet" xml:space="preserve">
+    <value>Le Monsieur de la Pension n'a pas encore d'œuf : marchez jusqu'à ce qu'il en ait un, placez-vous devant lui et recommencez.</value>
+  </data>
+  <data name="BotDaycareEgg_PartyFull" xml:space="preserve">
+    <value>Votre équipe est pleine : faites d'abord de la place pour l'œuf.</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyReceived" xml:space="preserve">
+    <value>Œuf chromatique ! Il est dans votre équipe : sauvegardez dans le jeu.</value>
+  </data>
+  <data name="BotDaycareEgg_NotReceived" xml:space="preserve">
+    <value>Aucun œuf après {0} images de dialogue : placez-vous devant le Monsieur de la Pension, face à lui, et recommencez.</value>
   </data>
 </root>

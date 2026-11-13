@@ -1,0 +1,60 @@
+{
+  "Name": "SoulSilver",
+  "Code": 15,
+  "Hashs": [
+    {
+      "Hash": "8A6C8888BED9E1DCE952F840351B73F2", //USA, Australia
+      "Tested": true
+    },
+    {
+      "Hash": "981691920015F00BFDE4894A7D737470", //USA, Australia, other dump
+      "Tested": false
+    }
+  ],
+  "Generation": 4,
+  "Pointers": {
+    "Anchor": "0x021D4158",
+    "PartyCount": "-0x23F44",
+    "Party": "-0x23F40",
+    "TrainerName": "-0x23F74",
+    "TrainerId": "-0x23F64",
+    "MapHeader": "-0x22DA4",
+    "Facing": "0x1DC4",
+    "FoeAnchor": "0x6930",
+    "FoeCount": "0xC14",
+    "Foe": "0xC18",
+    "BattleMenuState": "0x230EC",
+    "BattleSubMenus": [ 4, 8, 10 ],
+    "BattleIndicator": "0x021E76D2",
+    "PlayerX": "0x021DA6F4",
+    "PlayerY": "0x021DA6F8",
+    "PlayerZ": "0x021DA6FC",
+    "Rng": "0x021D15A8",
+    "Mt": "0x021D15AC",
+    "MtIndex": "0x0210F6CC",
+    "Daycare": "-0x229DC",
+    "DaycareSlotSize": "0xEC",
+    "DaycareOffspring": "-0x22804",
+    "RegisteredItem": "-0x231FC",
+    "RegisteredItem2": "-0x231FA",
+    "KeyItems": "-0x23700",
+    "FishingBite": "0x021DD853",
+    "StarterData": "0x1BC00",
+    "Bike": "-0x22D34"
+  },
+  "Starters": [
+    {
+      "PositionIndex": 0,
+      "PokemonId": 152
+    },
+    {
+      "PositionIndex": 1,
+      "PokemonId": 155
+    },
+    {
+      "PositionIndex": 2,
+      "PokemonId": 158
+    }
+  ],
+  "BotsConfig": null
+}

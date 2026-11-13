@@ -1,0 +1,48 @@
+{
+  "Name": "Blue",
+  "Code": 9,
+  "Hashs": [
+    {
+      "Hash": "d7037c83e1ae5b39bde3c30787637ba1d4c48ce2", //USA (Europe)
+      "Tested": false,
+      "Symbols": {
+        "Main": "pokeblue",
+        "Patches": []
+      }
+    }
+  ],
+  "Generation": 1,
+  "Starters": [
+    {
+      "PositionIndex": 0,
+      "PokemonId": 176
+    },
+    {
+      "PositionIndex": 1,
+      "PokemonId": 177
+    },
+    {
+      "PositionIndex": 2,
+      "PokemonId": 153
+    }
+  ],
+  "PokeFinderTypes": [
+    {
+      "Name": "None",
+      "FrameAdvance": 0
+    },
+    {
+      "Name": "Starter",
+      "FrameAdvance": 10
+    }
+  ],
+  "BotsConfig": {
+    "Starter": {
+      "Position": {
+        "X": 7,
+        "Y": 4
+      },
+      "Facing": 34
+    }
+  }
+}

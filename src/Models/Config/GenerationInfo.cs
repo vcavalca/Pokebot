@@ -13,6 +13,8 @@ namespace Pokebot.Models.Config
         public List<PokemonType> Types { get; set; }
         public List<PokemonNature> Natures { get; set; }
         public List<PokemonType> HiddenPowers { get; set; }
+        /// <summary>Ability names indexed by in-game ability id (Gen 4 stores the id itself).</summary>
+        public List<string> Abilities { get; set; }
         public List<PokemonConfig> Pokemons { get; set; }
         public List<string> Characters { get; set; }
         public List<string> CharactersJP { get; set; }
