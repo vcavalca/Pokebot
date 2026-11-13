@@ -62,7 +62,7 @@ namespace Pokebot.Factories.Bots
             }
 
             bool shouldLoad = false;
-            if (APIContainer.EmuClient.HasSaveState(GetSaveStateName()))
+            if (APIContainer.HasSaveState(GetSaveStateName()))
             {
                 var result = MessageBox.Show(Messages.Bot_FileExistReplaceMessage, Messages.Bot_FileExistReplaceTitle, MessageBoxButtons.YesNo);
                 shouldLoad = result == DialogResult.Yes;
