@@ -64,25 +64,14 @@
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Messages.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
-	  <EmbeddedResource Update="Messages.fr.resx">
+	  <!--
+	    Every translation Messages.<code>.resx (fr, pt-BR...) is embedded in Pokebot.dll itself as
+	    Pokebot.Messages.<code>.resources instead of a satellite DLL, and listed in the Settings tab
+	    automatically (Utils/Languages.cs). See TRANSLATING.md.
+	  -->
+	  <EmbeddedResource Update="Messages.*.resx">
 	    <WithCulture>false</WithCulture>
-	    <LogicalName>Pokebot.Messages.fr.resources</LogicalName>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Messages.de.resx">
-	    <WithCulture>false</WithCulture>
-	    <LogicalName>Pokebot.Messages.de.resources</LogicalName>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Messages.it.resx">
-	    <WithCulture>false</WithCulture>
-	    <LogicalName>Pokebot.Messages.it.resources</LogicalName>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Messages.es.resx">
-	    <WithCulture>false</WithCulture>
-	    <LogicalName>Pokebot.Messages.es.resources</LogicalName>
-	  </EmbeddedResource>
-	  <EmbeddedResource Update="Messages.ja.resx">
-	    <WithCulture>false</WithCulture>
-	    <LogicalName>Pokebot.Messages.ja.resources</LogicalName>
+	    <LogicalName>Pokebot.%(Filename).resources</LogicalName>
 	  </EmbeddedResource>
 	</ItemGroup>
 	<!--

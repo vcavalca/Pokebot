@@ -378,6 +378,12 @@
   <data name="Settings_LanguageLabel" xml:space="preserve">
     <value>言語：</value>
   </data>
+  <data name="Settings_LanguageRestartMessage" xml:space="preserve">
+    <value>言語を保存しました。すべての翻訳を適用するには Pokebot を再起動してください。</value>
+  </data>
+  <data name="Settings_LanguageRestartTitle" xml:space="preserve">
+    <value>言語</value>
+  </data>
   <data name="Stats_HeaderEncounters" xml:space="preserve">
     <value>遭遇数</value>
   </data>

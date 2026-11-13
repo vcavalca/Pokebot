@@ -35,7 +35,7 @@ Place the file `Pokebot.dll` inside `BizHawk/ExternalTools/` folder. Then, open 
 
 # <a name="supported-languages"></a>Supported Languages
 
-The language can be changed at any time from the **Settings** tab. A restart is required to apply the new language. All translations are embedded directly in `Pokebot.dll` — no extra files needed.
+The language can be changed at any time from the **Settings** tab (shown once a supported ROM is loaded). A restart of Pokebot is required to apply the new language. All translations are embedded directly in `Pokebot.dll` — no extra files needed.
 
 | Flag | Language | Code | Notes |
 |------|----------|------|-------|
@@ -45,8 +45,9 @@ The language can be changed at any time from the **Settings** tab. A restart is 
 | 🇮🇹 | Italiano | `it` | AI translated |
 | 🇪🇸 | Español | `es` | AI translated |
 | 🇯🇵 | 日本語 | `ja` | AI translated |
+| 🇧🇷 | Português (Brasil) | `pt-BR` | AI translated |
 
-> Contributions to improve AI-translated languages are welcome!
+> Want Pokebot in your language, or to improve an AI-translated one? See [TRANSLATING.md](TRANSLATING.md): adding a single file is enough.
 
 # <a name="supported-games"></a>Supported Games
 <details>

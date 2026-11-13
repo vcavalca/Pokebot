@@ -378,6 +378,12 @@ Non ci sono filtri: un uovo è già deciso quando lo ricevi, la schiusa non può
   <data name="Settings_LanguageLabel" xml:space="preserve">
     <value>Lingua:</value>
   </data>
+  <data name="Settings_LanguageRestartMessage" xml:space="preserve">
+    <value>Lingua salvata. Riavvia Pokebot per applicare tutte le traduzioni.</value>
+  </data>
+  <data name="Settings_LanguageRestartTitle" xml:space="preserve">
+    <value>Lingua</value>
+  </data>
   <data name="Stats_HeaderEncounters" xml:space="preserve">
     <value>Incontri</value>
   </data>

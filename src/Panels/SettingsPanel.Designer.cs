@@ -166,7 +166,7 @@
             this._languageComboBox.Location = new System.Drawing.Point(68, 135);
             this._languageComboBox.Margin = new System.Windows.Forms.Padding(2);
             this._languageComboBox.Name = "_languageComboBox";
-            this._languageComboBox.Size = new System.Drawing.Size(120, 21);
+            this._languageComboBox.Size = new System.Drawing.Size(150, 21);
             this._languageComboBox.TabIndex = 24;
             //
             // SettingsPanel

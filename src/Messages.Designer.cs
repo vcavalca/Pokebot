@@ -129,6 +129,18 @@ namespace Pokebot {
             }
         }
 
+        internal static string Settings_LanguageRestartMessage {
+            get {
+                return ResourceManager.GetString("Settings_LanguageRestartMessage", resourceCulture);
+            }
+        }
+
+        internal static string Settings_LanguageRestartTitle {
+            get {
+                return ResourceManager.GetString("Settings_LanguageRestartTitle", resourceCulture);
+            }
+        }
+
         internal static string Stats_HeaderEncounters {
             get {
                 return ResourceManager.GetString("Stats_HeaderEncounters", resourceCulture);

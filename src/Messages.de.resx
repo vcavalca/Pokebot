@@ -378,6 +378,12 @@ Es gibt keine Filter: Ein Ei ist bereits beim Erhalt festgelegt, das Ausbrüten 
   <data name="Settings_LanguageLabel" xml:space="preserve">
     <value>Sprache:</value>
   </data>
+  <data name="Settings_LanguageRestartMessage" xml:space="preserve">
+    <value>Sprache gespeichert. Starte Pokebot neu, um alle Übersetzungen anzuwenden.</value>
+  </data>
+  <data name="Settings_LanguageRestartTitle" xml:space="preserve">
+    <value>Sprache</value>
+  </data>
   <data name="Stats_HeaderEncounters" xml:space="preserve">
     <value>Begegnungen</value>
   </data>

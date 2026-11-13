@@ -378,6 +378,12 @@ Il n'y a pas de filtres : un œuf est déjà déterminé à sa réception, l'éc
   <data name="Settings_LanguageLabel" xml:space="preserve">
     <value>Langue :</value>
   </data>
+  <data name="Settings_LanguageRestartMessage" xml:space="preserve">
+    <value>Langue enregistrée. Redémarrez Pokebot pour appliquer toutes les traductions.</value>
+  </data>
+  <data name="Settings_LanguageRestartTitle" xml:space="preserve">
+    <value>Langue</value>
+  </data>
   <data name="Stats_HeaderEncounters" xml:space="preserve">
     <value>Rencontres</value>
   </data>

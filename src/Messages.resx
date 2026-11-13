@@ -461,6 +461,12 @@ There are no filters: an egg is already decided when you receive it, hatching ca
   <data name="Settings_LanguageLabel" xml:space="preserve">
     <value>Language:</value>
   </data>
+  <data name="Settings_LanguageRestartMessage" xml:space="preserve">
+    <value>Language saved. Restart Pokebot to apply all translations.</value>
+  </data>
+  <data name="Settings_LanguageRestartTitle" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="Stats_HeaderEncounters" xml:space="preserve">
     <value>Encounters</value>
   </data>

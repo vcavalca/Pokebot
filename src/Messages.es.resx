@@ -378,6 +378,12 @@ No hay filtros: un huevo ya está decidido al recibirlo, eclosionarlo no puede h
   <data name="Settings_LanguageLabel" xml:space="preserve">
     <value>Idioma:</value>
   </data>
+  <data name="Settings_LanguageRestartMessage" xml:space="preserve">
+    <value>Idioma guardado. Reinicia Pokebot para aplicar todas las traducciones.</value>
+  </data>
+  <data name="Settings_LanguageRestartTitle" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
   <data name="Stats_HeaderEncounters" xml:space="preserve">
     <value>Encuentros</value>
   </data>

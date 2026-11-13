@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="API_GithubError" xml:space="preserve">
+    <value>Ocorreu um erro ao chamar a API do GitHub.</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Pokebot</value>
+  </data>
+  <data name="BotEggHatch_AllHatched" xml:space="preserve">
+    <value>Todos os ovos chocaram.</value>
+  </data>
+  <data name="BotEggHatch_Help" xml:space="preserve">
+    <value>Fique em um caminho reto com ovos na equipe, virado para a direção em que quer andar, e clique em Iniciar. O bot anda até algo bloquear o caminho, dá meia-volta e continua até todos os ovos chocarem (ele responde NO à pergunta do apelido).
+
+Não há filtros: o ovo já está definido quando você o recebe, chocar não o deixa shiny. Para conseguir outro Pokémon, reinicie antes de receber o ovo.</value>
+  </data>
+  <data name="BotEggHatch_NoEgg" xml:space="preserve">
+    <value>Não há nenhum ovo na sua equipe.</value>
+  </data>
+  <data name="BotEggHatch_ShinyHatched" xml:space="preserve">
+    <value>Um Pokémon shiny chocou!</value>
+  </data>
+  <data name="BotFactory_NotSupported" xml:space="preserve">
+    <value>Tipo de bot não suportado</value>
+  </data>
+  <data name="BotPickupPokemon_PartyFull" xml:space="preserve">
+    <value>Sua equipe está cheia. É preciso ter pelo menos 1 espaço livre para usar este bot.</value>
+  </data>
+  <data name="BotPokeFinder_InvalidFrame" xml:space="preserve">
+    <value>Este frame já passou. Salve o jogo e carregue-o de novo (sem save state).</value>
+  </data>
+  <data name="BotPokeFinder_InvalidSaveState" xml:space="preserve">
+    <value>O bot não pode iniciar porque o save state não existe mais.</value>
+  </data>
+  <data name="BotPokeFinder_PokemonNotFound" xml:space="preserve">
+    <value>Todos os frames foram testados e o Pokémon com PID {0} não foi encontrado.</value>
+  </data>
+  <data name="BotPokeFinder_TrainerInfo" xml:space="preserve">
+    <value>TID : {0} - SID : {1}</value>
+  </data>
+  <data name="PathBot_EmptyPath" xml:space="preserve">
+    <value>O caminho está vazio. Adicione pelo menos uma direção antes de iniciar.</value>
+  </data>
+  <data name="BotStarter_InvalidSaveState" xml:space="preserve">
+    <value>O bot não pode iniciar porque o save state não existe mais.</value>
+  </data>
+  <data name="BotStarter_PartyNotEmpty" xml:space="preserve">
+    <value>Este bot não pode ser usado porque a equipe não está vazia.</value>
+  </data>
+  <data name="BotStarter_WrongStartPosition" xml:space="preserve">
+    <value>O bot não pode iniciar porque o jogador não está na frente dos iniciais. (Fique no meio)</value>
+  </data>
+  <data name="Bot_FileExistReplaceMessage" xml:space="preserve">
+    <value>Já existe um save state para este bot. Deseja usá-lo?</value>
+  </data>
+  <data name="Bot_FileExistReplaceTitle" xml:space="preserve">
+    <value>O arquivo já existe</value>
+  </data>
+  <data name="Bot_NotRunning" xml:space="preserve">
+    <value>O bot não está rodando</value>
+  </data>
+  <data name="Bot_Running" xml:space="preserve">
+    <value>O bot está rodando...</value>
+  </data>
+  <data name="DiscordWebhook_Failed" xml:space="preserve">
+    <value>Falha ao enviar o webhook do Discord: {0}</value>
+  </data>
+  <data name="Discord_Ability" xml:space="preserve">
+    <value>Habilidade</value>
+  </data>
+  <data name="Discord_Content" xml:space="preserve">
+    <value>O bot parou porque encontrou um Pokémon com os seus filtros! :partying_face:</value>
+  </data>
+  <data name="Discord_ContentWithUser" xml:space="preserve">
+    <value>Ei {0}! {1}</value>
+  </data>
+  <data name="Discord_Encountered" xml:space="preserve">
+    <value>Encontrados</value>
+  </data>
+  <data name="Discord_EncounteredRatio" xml:space="preserve">
+    <value>Proporção</value>
+  </data>
+  <data name="Discord_Game" xml:space="preserve">
+    <value>Jogo</value>
+  </data>
+  <data name="Discord_Gender" xml:space="preserve">
+    <value>Gênero</value>
+  </data>
+  <data name="Discord_Item" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="Discord_IVAttack" xml:space="preserve">
+    <value>IV Ataque</value>
+  </data>
+  <data name="Discord_IVDefense" xml:space="preserve">
+    <value>IV Defesa</value>
+  </data>
+  <data name="Discord_IVHp" xml:space="preserve">
+    <value>IV HP</value>
+  </data>
+  <data name="Discord_IVSpAttack" xml:space="preserve">
+    <value>IV Atq. Esp.</value>
+  </data>
+  <data name="Discord_IVSpDefense" xml:space="preserve">
+    <value>IV Def. Esp.</value>
+  </data>
+  <data name="Discord_IVSpeed" xml:space="preserve">
+    <value>IV Velocidade</value>
+  </data>
+  <data name="Discord_Nature" xml:space="preserve">
+    <value>Natureza</value>
+  </data>
+  <data name="Discord_PokemonName" xml:space="preserve">
+    <value>{0} ({1})</value>
+  </data>
+  <data name="Discord_Shiny" xml:space="preserve">
+    <value>Shiny</value>
+  </data>
+  <data name="Discord_ShinyEncountered" xml:space="preserve">
+    <value>Shinies encontrados</value>
+  </data>
+  <data name="Discord_ShinyNo" xml:space="preserve">
+    <value>Não :x:</value>
+  </data>
+  <data name="Discord_ShinyYes" xml:space="preserve">
+    <value>Sim :white_check_mark:</value>
+  </data>
+  <data name="Discord_Trainer" xml:space="preserve">
+    <value>Treinador</value>
+  </data>
+  <data name="Error_ReadingBotType" xml:space="preserve">
+    <value>Ocorreu um erro ao ler o tipo de bot.</value>
+  </data>
+  <data name="Filter_AnyGender" xml:space="preserve">
+    <value>Qualquer gênero</value>
+  </data>
+  <data name="Filter_AnyItem" xml:space="preserve">
+    <value>Qualquer item</value>
+  </data>
+  <data name="Filter_AnyNature" xml:space="preserve">
+    <value>Qualquer natureza</value>
+  </data>
+  <data name="Filter_AnyPokemon" xml:space="preserve">
+    <value>Qualquer Pokémon</value>
+  </data>
+  <data name="Filter_AnyType" xml:space="preserve">
+    <value>Qualquer tipo</value>
+  </data>
+  <data name="Gender_Female" xml:space="preserve">
+    <value>Fêmea</value>
+  </data>
+  <data name="Gender_Genderless" xml:space="preserve">
+    <value>Sem gênero</value>
+  </data>
+  <data name="Gender_Male" xml:space="preserve">
+    <value>Macho</value>
+  </data>
+  <data name="Gender_Unknow" xml:space="preserve">
+    <value>Desconhecido</value>
+  </data>
+  <data name="InvalidRegisteredItem" xml:space="preserve">
+    <value>O item registrado não pode ser usado</value>
+  </data>
+  <data name="Item_Nothing" xml:space="preserve">
+    <value>Nenhum</value>
+  </data>
+  <data name="NewVersion_Message" xml:space="preserve">
+    <value>Deseja baixar a versão {0}?</value>
+  </data>
+  <data name="NewVersion_MessageLabel" xml:space="preserve">
+    <value>A versão {0} já está disponível no GitHub!</value>
+  </data>
+  <data name="NewVersion_Title" xml:space="preserve">
+    <value>Nova versão disponível</value>
+  </data>
+  <data name="PokeFinder_CurrentFrame" xml:space="preserve">
+    <value>Frame atual: {0}</value>
+  </data>
+  <data name="Path_Clear" xml:space="preserve">
+    <value>Limpar</value>
+  </data>
+  <data name="Path_Down" xml:space="preserve">
+    <value>Baixo</value>
+  </data>
+  <data name="Path_EmptyPreview" xml:space="preserve">
+    <value>Caminho: (vazio)</value>
+  </data>
+  <data name="Path_Left" xml:space="preserve">
+    <value>Esquerda</value>
+  </data>
+  <data name="Path_Preview" xml:space="preserve">
+    <value>Caminho ({0}): {1}</value>
+  </data>
+  <data name="Path_Right" xml:space="preserve">
+    <value>Direita</value>
+  </data>
+  <data name="Path_Up" xml:space="preserve">
+    <value>Cima</value>
+  </data>
+  <data name="Pokemon_Found" xml:space="preserve">
+    <value>Pokémon com os filtros encontrado.</value>
+  </data>
+  <data name="Pokemon_FoundCatch" xml:space="preserve">
+    <value>Pokémon com os filtros encontrado. Capture-o manualmente.</value>
+  </data>
+  <data name="Pokemon_NotValid" xml:space="preserve">
+    <value>Pokémon inválido</value>
+  </data>
+  <data name="Rom_Loaded" xml:space="preserve">
+    <value>ROM {0} carregada</value>
+  </data>
+  <data name="Rom_NotLoaded" xml:space="preserve">
+    <value>Nenhuma ROM carregada</value>
+  </data>
+  <data name="Rom_NotSupported" xml:space="preserve">
+    <value>Esta ROM não é suportada</value>
+  </data>
+  <data name="Settings_Pause" xml:space="preserve">
+    <value>Pausar</value>
+  </data>
+  <data name="Settings_Sound" xml:space="preserve">
+    <value>Som</value>
+  </data>
+  <data name="Settings_Speed" xml:space="preserve">
+    <value>Acelerar</value>
+  </data>
+  <data name="SpinBot_StartOnlyMap" xml:space="preserve">
+    <value>Inicie este bot enquanto estiver no mapa</value>
+  </data>
+  <data name="SpinBot_UnknowNextMove" xml:space="preserve">
+    <value>Não foi possível girar o jogador, o próximo movimento é desconhecido</value>
+  </data>
+  <data name="Status_Tested" xml:space="preserve">
+    <value>Testados: {0}</value>
+  </data>
+  <data name="Symbols_Empty" xml:space="preserve">
+    <value>Nenhum símbolo encontrado para este jogo.</value>
+  </data>
+  <data name="Tab_BotPanel" xml:space="preserve">
+    <value>Bot</value>
+  </data>
+  <data name="Tab_EncounterStats" xml:space="preserve">
+    <value>Estatísticas</value>
+  </data>
+  <data name="Tab_LogsPanel" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="Tab_SettingsPanel" xml:space="preserve">
+    <value>Configurações</value>
+  </data>
+  <data name="Tab_ViewerOpponentName" xml:space="preserve">
+    <value>Oponente</value>
+  </data>
+  <data name="Tab_ViewerPartyName" xml:space="preserve">
+    <value>Equipe</value>
+  </data>
+  <data name="Tooltip_Delay" xml:space="preserve">
+    <value>É melhor ter um pequeno atraso entre cada ação para evitar que o bot trave ao enviar os comandos. 0.1 é o recomendado.</value>
+  </data>
+  <data name="Tooltip_ShinyHack" xml:space="preserve">
+    <value>As gerações 1 e 2 suportam esta opção.
+Enquanto ela estiver ativa e você procurar por shiny, todo Pokémon
+será shiny automaticamente e legítimo
+
+(Isso porque as gerações antigas calculam o shiny pelos IVs e não pelo TID/SID)</value>
+  </data>
+  <data name="Viewer_Ability" xml:space="preserve">
+    <value>Habilidade: {0}</value>
+  </data>
+  <data name="Viewer_Attack" xml:space="preserve">
+    <value>Ataque: {0}</value>
+  </data>
+  <data name="Viewer_Defense" xml:space="preserve">
+    <value>Defesa: {0}</value>
+  </data>
+  <data name="Viewer_Gender" xml:space="preserve">
+    <value>Gênero: {0}</value>
+  </data>
+  <data name="Viewer_HiddenPowerDamage" xml:space="preserve">
+    <value>Dano do Poder Oculto: {0}</value>
+  </data>
+  <data name="Viewer_HiddenPowerType" xml:space="preserve">
+    <value>Poder Oculto: {0}</value>
+  </data>
+  <data name="Viewer_HP" xml:space="preserve">
+    <value>HP: {0}</value>
+  </data>
+  <data name="Viewer_Item" xml:space="preserve">
+    <value>Item: {0}</value>
+  </data>
+  <data name="Viewer_Move" xml:space="preserve">
+    <value>{0} ({1}/{2})</value>
+  </data>
+  <data name="Viewer_Nature" xml:space="preserve">
+    <value>Natureza: {0}</value>
+  </data>
+  <data name="Viewer_NoMove" xml:space="preserve">
+    <value>/</value>
+  </data>
+  <data name="Viewer_NotShiny" xml:space="preserve">
+    <value>Não é shiny</value>
+  </data>
+  <data name="Viewer_PID" xml:space="preserve">
+    <value>PID: {0}</value>
+  </data>
+  <data name="Viewer_Shiny" xml:space="preserve">
+    <value>Shiny</value>
+  </data>
+  <data name="Viewer_SpAttack" xml:space="preserve">
+    <value>Atq. Esp.: {0}</value>
+  </data>
+  <data name="Viewer_SpDefense" xml:space="preserve">
+    <value>Def. Esp.: {0}</value>
+  </data>
+  <data name="Viewer_Speed" xml:space="preserve">
+    <value>Velocidade: {0}</value>
+  </data>
+  <data name="Bot_Start" xml:space="preserve">
+    <value>Iniciar</value>
+  </data>
+  <data name="Bot_Stop" xml:space="preserve">
+    <value>Parar</value>
+  </data>
+  <data name="Filter_ExactIV" xml:space="preserve">
+    <value>IV exato (mínimo por padrão)</value>
+  </data>
+  <data name="Filter_IVsGroup" xml:space="preserve">
+    <value>IVs</value>
+  </data>
+  <data name="Filter_Shiny" xml:space="preserve">
+    <value>Shiny</value>
+  </data>
+  <data name="Filter_ShinyHack" xml:space="preserve">
+    <value>Usar Shiny Hack</value>
+  </data>
+  <data name="Logs_CopyStackTrace" xml:space="preserve">
+    <value>Copiar stack trace</value>
+  </data>
+  <data name="Logs_HeaderMessage" xml:space="preserve">
+    <value>Mensagem</value>
+  </data>
+  <data name="Logs_HeaderType" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Settings_DelayLabel" xml:space="preserve">
+    <value>Segundos de atraso entre os comandos do bot</value>
+  </data>
+  <data name="Settings_LanguageLabel" xml:space="preserve">
+    <value>Idioma:</value>
+  </data>
+  <data name="Settings_LanguageRestartMessage" xml:space="preserve">
+    <value>Idioma salvo. Reinicie o Pokebot para aplicar todas as traduções.</value>
+  </data>
+  <data name="Settings_LanguageRestartTitle" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="Stats_HeaderEncounters" xml:space="preserve">
+    <value>Encontros</value>
+  </data>
+  <data name="Stats_HeaderPokemon" xml:space="preserve">
+    <value>Pokémon</value>
+  </data>
+  <data name="Stats_HeaderRatio" xml:space="preserve">
+    <value>Proporção</value>
+  </data>
+  <data name="Stats_HeaderShiny" xml:space="preserve">
+    <value>Shinies encontrados</value>
+  </data>
+  <data name="Viewer_IVsGroup" xml:space="preserve">
+    <value>IVs</value>
+  </data>
+  <data name="Viewer_MovesGroup" xml:space="preserve">
+    <value>Golpes</value>
+  </data>
+  <data name="BotFishing_NoRod" xml:space="preserve">
+    <value>Registre uma vara de pescar no Y (Bag &gt; Key Items &gt; Register) e fique de frente para a água antes de iniciar. HeartGold/SoulSilver e Gen 5 (Super Rod): a vara precisa ser o único item registrado.</value>
+  </data>
+  <data name="BotFishing_NothingCaught" xml:space="preserve">
+    <value>Nenhum Pokémon depois de {0} tentativas seguidas: confira se você está de frente para uma água onde dá para pescar.</value>
+  </data>
+  <data name="BotDaycareEgg_Help" xml:space="preserve">
+    <value>Deixe na Day-Care dois Pokémon que possam cruzar (Solaceon Town em Diamond/Pearl/Platinum, Route 34 em HeartGold/SoulSilver; o Day-Care Man não pode estar com um ovo esperando), fique em um caminho reto sem treinadores nem grama alta, virado para a direção em que vai andar, e clique em Iniciar. O bot anda até logo antes da próxima checagem de ovo, salva um state ali e o recarrega com novos números aleatórios até que o ovo que o Day-Care Man recebe seja shiny. Então ele para: vá até o Day-Care Man, pegue o ovo (os IVs dele são definidos quando você o pega) e salve no jogo.</value>
+  </data>
+  <data name="BotDaycareEgg_NeedTwo" xml:space="preserve">
+    <value>Primeiro deixe na Day-Care dois Pokémon que possam cruzar.</value>
+  </data>
+  <data name="BotDaycareEgg_EggWaiting" xml:space="preserve">
+    <value>O Day-Care Man já tem um ovo: pegue-o (ou recuse) antes de iniciar.</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyFound" xml:space="preserve">
+    <value>Ovo shiny! Vá até o Day-Care Man, pegue o ovo e salve no jogo.</value>
+  </data>
+  <data name="BotDaycareEgg_NoEgg" xml:space="preserve">
+    <value>Nenhum ovo depois de {0} tentativas: esses dois Pokémon não podem cruzar.</value>
+  </data>
+  <data name="BotDaycareEgg_HelpGen5" xml:space="preserve">
+    <value>Black/White/Black 2/White 2 (Day-Care na Route 3) e Omega Ruby/Alpha Sapphire (Route 117): o ovo só é definido quando você o pega. Deixe dois Pokémon que possam cruzar e ande até o Day-Care Man (do lado de fora, perto da porta) ter um ovo para você. Libere espaço na equipe, fique na frente dele, virado para ele, e clique em Iniciar. O bot salva um state ali, pega o ovo e recarrega com novos números aleatórios até o ovo ser shiny. Então ele para com o ovo shiny na sua equipe: salve no jogo.</value>
+  </data>
+  <data name="BotDaycareEgg_NoEggYet" xml:space="preserve">
+    <value>O Day-Care Man ainda não tem ovo: ande até ele ter um, depois fique na frente dele e inicie de novo.</value>
+  </data>
+  <data name="BotDaycareEgg_PartyFull" xml:space="preserve">
+    <value>Sua equipe está cheia: libere espaço para o ovo primeiro.</value>
+  </data>
+  <data name="BotDaycareEgg_ShinyReceived" xml:space="preserve">
+    <value>Ovo shiny! Ele está na sua equipe: salve no jogo.</value>
+  </data>
+  <data name="BotDaycareEgg_NotReceived" xml:space="preserve">
+    <value>Nenhum ovo depois de {0} frames de conversa: fique na frente do Day-Care Man, virado para ele, e inicie de novo.</value>
+  </data>
+</root>

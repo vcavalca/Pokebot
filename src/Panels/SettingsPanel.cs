@@ -1,5 +1,8 @@
 ﻿using Pokebot.Models;
+using Pokebot.Utils;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Pokebot.Panels
@@ -14,7 +17,8 @@ namespace Pokebot.Panels
 
         public SettingsConfig SettingsConfig { get; }
 
-        private static readonly string[] _languageCodes = { "en", "fr", "de", "it", "es", "ja" };
+        // English plus every Messages.<code>.resx embedded in the DLL
+        private readonly IReadOnlyList<LanguageOption> _languages = Languages.GetAvailable();
 
         public SettingsPanel()
         {
@@ -31,14 +35,9 @@ namespace Pokebot.Panels
 
             // Populate language dropdown. Add handler AFTER setting SelectedIndex so
             // the initial assignment does not trigger the changed event.
-            _languageComboBox.Items.Add("English");
-            _languageComboBox.Items.Add("Français");
-            _languageComboBox.Items.Add("Deutsch");
-            _languageComboBox.Items.Add("Italiano");
-            _languageComboBox.Items.Add("Español");
-            _languageComboBox.Items.Add("日本語");
-            int langIndex = Array.IndexOf(_languageCodes, SettingsConfig.Language);
-            _languageComboBox.SelectedIndex = langIndex >= 0 ? langIndex : 0;
+            _languageComboBox.Items.AddRange(_languages.ToArray<object>());
+            var savedLanguage = _languages.FirstOrDefault(x => x.Code.Equals(SettingsConfig.Language, StringComparison.OrdinalIgnoreCase));
+            _languageComboBox.SelectedIndex = savedLanguage != null ? _languageComboBox.Items.IndexOf(savedLanguage) : 0;
             _languageComboBox.SelectedIndexChanged += _languageComboBox_SelectedIndexChanged;
         }
 
@@ -93,20 +92,19 @@ namespace Pokebot.Panels
 
         private void _languageComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = _languageComboBox.SelectedIndex;
-            if (index < 0 || index >= _languageCodes.Length)
+            if (!(_languageComboBox.SelectedItem is LanguageOption language))
             {
                 return;
             }
 
-            string code = _languageCodes[index];
-            SettingsConfig.Language = code;
+            SettingsConfig.Language = language.Code;
             SettingsConfig.Save();
-            SettingsConfig.ApplyLanguage(code);
+            SettingsConfig.ApplyLanguage(language.Code);
 
+            // Shown in the language just picked
             MessageBox.Show(
-                "Language saved. Please restart Pokebot to apply all translations.",
-                "Language / Langue",
+                Messages.Settings_LanguageRestartMessage,
+                Messages.Settings_LanguageRestartTitle,
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
